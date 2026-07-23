@@ -77,21 +77,35 @@ export const Route = createRootRouteWithContext<{ queryClient: QueryClient }>()(
     meta: [
       { charSet: "utf-8" },
       { name: "viewport", content: "width=device-width, initial-scale=1" },
-      { title: "Lovable App" },
-      { name: "description", content: "Lovable Generated Project" },
-      { name: "author", content: "Lovable" },
-      { property: "og:title", content: "Lovable App" },
-      { property: "og:description", content: "Lovable Generated Project" },
+      { title: "5ª Corrida de Cristo Rei - Lorena 2026" },
+      {
+        name: "description",
+        content:
+          "Participe da 5ª Corrida de Cristo Rei em Lorena-SP no dia 29/11/2026. Corrida e caminhada beneficente pela Paróquia Cristo Rei — 10K, 5K, 3K e Kids.",
+      },
+      { name: "author", content: "Paróquia Cristo Rei de Lorena" },
+      { property: "og:title", content: "5ª Corrida de Cristo Rei - Lorena 2026" },
+      {
+        property: "og:description",
+        content:
+          "Corrida beneficente em Lorena-SP no dia 29/11/2026. Correndo com Fé, chegando com Graça.",
+      },
       { property: "og:type", content: "website" },
       { name: "twitter:card", content: "summary_large_image" },
-      { name: "twitter:site", content: "@Lovable" },
     ],
     links: [
+      { rel: "stylesheet", href: appCss },
+      { rel: "icon", href: "/favicon.ico", type: "image/x-icon" },
+      { rel: "preconnect", href: "https://fonts.googleapis.com" },
+      { rel: "preconnect", href: "https://fonts.gstatic.com", crossOrigin: "anonymous" },
       {
         rel: "stylesheet",
-        href: appCss,
+        href: "https://fonts.googleapis.com/css2?family=Montserrat:wght@300;400;500;600;700;800&family=Oswald:wght@400;500;700&display=swap",
       },
-      { rel: "icon", href: "/favicon.ico", type: "image/x-icon" },
+      {
+        rel: "stylesheet",
+        href: "https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css",
+      },
     ],
   }),
   shellComponent: RootShell,

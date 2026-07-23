@@ -4,6 +4,51 @@
 
 @custom-variant dark (&:is(.dark *));
 
+@theme {
+  --font-sans: "Montserrat", sans-serif;
+  --font-display: "Oswald", sans-serif;
+  --color-king-gold: #d4af37;
+  --color-king-dark: #1f0508;
+  --color-king-red: #82040f;
+  --color-king-light: #fff1f2;
+  --breakpoint-xs: 475px;
+}
+
+@utility hero-bg {
+  background-image: linear-gradient(rgba(31, 5, 8, 0.85), rgba(130, 4, 15, 0.85)),
+    url("https://images.unsplash.com/photo-1452626038306-3aae5e06da67?ixlib=rb-1.2.1&auto=format&fit=crop&w=1950&q=80");
+  background-size: cover;
+  background-position: center;
+  background-attachment: fixed;
+  @media (max-width: 768px) {
+    background-attachment: scroll;
+  }
+}
+
+@utility clip-diagonal {
+  clip-path: polygon(0 0, 100% 0, 100% 90%, 0 100%);
+  @media (min-width: 768px) {
+    clip-path: polygon(0 0, 100% 0, 100% 85%, 0 100%);
+  }
+}
+
+@utility animate-fade-up {
+  animation: fadeUp 0.8s ease-out forwards;
+  opacity: 0;
+}
+
+@keyframes fadeUp {
+  from {
+    opacity: 0;
+    transform: translateY(20px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+
 /*
  * Design system definition.
  *

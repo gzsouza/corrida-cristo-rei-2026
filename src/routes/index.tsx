@@ -597,7 +597,7 @@ function Index() {
             <h3 className="text-lg md:text-xl font-bold mb-2">Largada e Chegada</h3>
             <p className="text-base md:text-lg text-stone-700 font-medium">Paróquia Cristo Rei</p>
             <a
-              href="https://www.google.com/maps/search/?api=1&query=Par%C3%B3quia%20Cristo%20Rei%20Lorena&query_place_id=ChIJNyK-zR-JzJQRAXCXrsLwoDM"
+              href="https://www.google.com/maps/search/?api=1&query=-22.7290514%2C-45.1117414"
               target="_blank"
               rel="noreferrer"
               className="inline-block text-stone-600 mb-6 text-sm md:text-base hover:text-king-red hover:underline transition-colors group"

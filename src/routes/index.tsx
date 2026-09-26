@@ -269,39 +269,38 @@ function Index() {
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6 md:gap-8">
           {[
             {
-              title: "KIDS", sub: "Os Pequenos Reis", icon: "fa-child",
+              title: "KIDS", icon: "fa-child",
               headerBg: "bg-yellow-400", headerText: "text-king-dark", iconTint: "text-black/10",
               border: "border-yellow-400",
-              items: ["Distâncias por Idade", "Recreação no Local", "Medalha Kids"],
+              items: ["Distâncias por Idade", "Recreação no Local", "Kit Camiseta, Medalha, Terço e Brindes"],
               time: "Início: 09:30h",
             },
             {
-              title: "3 KM", sub: "Caminhada da Família", icon: "fa-person-walking",
+              title: "3 KM", icon: "fa-person-walking",
               headerBg: "bg-stone-600", headerText: "text-white", iconTint: "text-white/10",
               border: "border-stone-500",
-              items: ["Participativo (Sem Chip)", "Ideal para Famílias", "Kit Caminhada"],
-              time: "Largada: 08:00h",
+              items: ["Participativo (Sem Chip)", "Ideal para Famílias", "Kit Camiseta, Medalha, Terço e Brindes"],
+              time: "Largada: 07:00h",
             },
             {
-              title: "5 KM", sub: "Desafio da Fé", icon: "fa-stopwatch",
+              title: "5 KM", icon: "fa-stopwatch",
               headerBg: "bg-king-red/90", headerText: "text-white", iconTint: "text-white/10",
               border: "border-king-red",
-              items: ["Chip de Cronometragem", "Percurso Plano", "Kit Atleta Completo"],
-              time: "Largada: 07:45h",
+              items: ["Chip de Cronometragem", "Percurso Plano", "Kit Camiseta, Medalha, Terço e Brindes"],
+              time: "Largada: 07:00h",
             },
             {
-              title: "10 KM", sub: "Prova Soberana", icon: "fa-road",
+              title: "10 KM", icon: "fa-road",
               headerBg: "bg-king-red", headerText: "text-white", iconTint: "text-white/10",
               border: "border-king-red",
-              items: ["Chip de Cronometragem", "Hidratação no percurso", "Kit Atleta Completo"],
-              time: "Largada: 07:30h",
+              items: ["Chip de Cronometragem", "Hidratação no percurso", "Kit Camiseta, Medalha, Terço e Brindes"],
+              time: "Largada: 07:00h",
             },
           ].map((m) => (
             <div key={m.title} className={`bg-white rounded-2xl shadow-lg overflow-hidden group hover:shadow-2xl transition-all border-b-4 ${m.border} flex flex-col`}>
-              <div className={`${m.headerBg} p-6 text-center ${m.headerText} relative overflow-hidden`}>
+              <div className={`${m.headerBg} p-6 min-h-[104px] md:min-h-[124px] flex items-center justify-center text-center ${m.headerText} relative overflow-hidden`}>
                 <i className={`fa-solid ${m.icon} absolute -right-4 -top-4 text-7xl md:text-8xl ${m.iconTint} group-hover:scale-110 transition-transform`} />
-                <h3 className="text-2xl md:text-3xl font-display font-bold">{m.title}</h3>
-                <p className="text-xs md:text-sm opacity-90 font-medium">{m.sub}</p>
+                <h3 className="relative text-2xl md:text-3xl font-display font-bold">{m.title}</h3>
               </div>
               <div className="p-6 text-center flex-grow flex flex-col justify-between">
                 <ul className="text-sm text-stone-600 space-y-3 mb-6 text-left pl-4">

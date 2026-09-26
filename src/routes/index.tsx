@@ -598,7 +598,12 @@ function Index() {
             <p className="text-base md:text-lg text-stone-700 font-medium">Paróquia Cristo Rei</p>
             <a
               href="https://www.google.com/maps/search/?api=1&query=-22.7290514%2C-45.1117414"
-              target="_top"
+              target="_blank"
+              rel="noopener noreferrer"
+              onClick={(event) => {
+                event.preventDefault();
+                window.open(event.currentTarget.href, "_blank", "noopener,noreferrer");
+              }}
               className="inline-block text-stone-600 mb-6 text-sm md:text-base hover:text-king-red hover:underline transition-colors group"
             >
               R. Joaquim Cardoso Machado, 201 - Vila Geny

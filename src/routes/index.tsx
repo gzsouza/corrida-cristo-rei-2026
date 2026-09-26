@@ -522,35 +522,61 @@ function Index() {
                   <h3 className="text-xl md:text-2xl font-display font-bold text-king-dark">Quero ser Parceiro</h3>
                   <p className="text-xs md:text-sm text-stone-500">Preencha e entraremos em contato com as cotas disponíveis.</p>
                 </div>
-                <form
-                  className="space-y-4"
-                  onSubmit={(e) => {
-                    e.preventDefault();
-                    alert("Obrigado pelo interesse! Nossa equipe de marketing entrará em contato em breve.");
-                  }}
-                >
+                <form className="space-y-4" onSubmit={handlePartnerSubmit}>
                   <div>
                     <label className="block text-sm font-bold text-stone-700 mb-1">Nome da Empresa</label>
                     <div className="relative">
                       <div className="absolute inset-y-0 left-0 pl-3 flex items-center pointer-events-none">
                         <i className="fa-solid fa-building text-stone-400" />
                       </div>
-                      <input type="text" placeholder="Sua Empresa Ltda" className="w-full pl-10 pr-4 py-3 border border-stone-200 rounded-lg focus:ring-2 focus:ring-king-red focus:border-transparent outline-none transition bg-stone-50 focus:bg-white text-sm" />
+                      <input
+                        type="text"
+                        placeholder="Sua Empresa Ltda"
+                        required
+                        value={partner.empresa}
+                        onChange={(e) => setPartner({ ...partner, empresa: e.target.value })}
+                        onBlur={() => partner.empresa && pushDataLayer({ event: "partner_field", field: "nome_empresa", value: partner.empresa })}
+                        className="w-full pl-10 pr-4 py-3 border border-stone-200 rounded-lg focus:ring-2 focus:ring-king-red focus:border-transparent outline-none transition bg-stone-50 focus:bg-white text-sm"
+                      />
                     </div>
                   </div>
                   <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
                     <div>
                       <label className="block text-sm font-bold text-stone-700 mb-1">Responsável</label>
-                      <input type="text" placeholder="Seu nome" className="w-full px-4 py-3 border border-stone-200 rounded-lg focus:ring-2 focus:ring-king-red focus:border-transparent outline-none transition bg-stone-50 focus:bg-white text-sm" />
+                      <input
+                        type="text"
+                        placeholder="Seu nome"
+                        required
+                        value={partner.responsavel}
+                        onChange={(e) => setPartner({ ...partner, responsavel: e.target.value })}
+                        onBlur={() => partner.responsavel && pushDataLayer({ event: "partner_field", field: "responsavel", value: partner.responsavel })}
+                        className="w-full px-4 py-3 border border-stone-200 rounded-lg focus:ring-2 focus:ring-king-red focus:border-transparent outline-none transition bg-stone-50 focus:bg-white text-sm"
+                      />
                     </div>
                     <div>
                       <label className="block text-sm font-bold text-stone-700 mb-1">Telefone / WhatsApp</label>
-                      <input type="tel" placeholder="(XX) 99999-9999" className="w-full px-4 py-3 border border-stone-200 rounded-lg focus:ring-2 focus:ring-king-red focus:border-transparent outline-none transition bg-stone-50 focus:bg-white text-sm" />
+                      <input
+                        type="tel"
+                        placeholder="(XX) 99999-9999"
+                        required
+                        value={partner.telefone}
+                        onChange={(e) => setPartner({ ...partner, telefone: e.target.value })}
+                        onBlur={() => partner.telefone && pushDataLayer({ event: "partner_field", field: "telefone", value: partner.telefone })}
+                        className="w-full px-4 py-3 border border-stone-200 rounded-lg focus:ring-2 focus:ring-king-red focus:border-transparent outline-none transition bg-stone-50 focus:bg-white text-sm"
+                      />
                     </div>
                   </div>
                   <div>
                     <label className="block text-sm font-bold text-stone-700 mb-1">E-mail Corporativo</label>
-                    <input type="email" placeholder="contato@suaempresa.com" className="w-full px-4 py-3 border border-stone-200 rounded-lg focus:ring-2 focus:ring-king-red focus:border-transparent outline-none transition bg-stone-50 focus:bg-white text-sm" />
+                    <input
+                      type="email"
+                      placeholder="contato@suaempresa.com"
+                      required
+                      value={partner.email}
+                      onChange={(e) => setPartner({ ...partner, email: e.target.value })}
+                      onBlur={() => partner.email && pushDataLayer({ event: "partner_field", field: "email", value: partner.email })}
+                      className="w-full px-4 py-3 border border-stone-200 rounded-lg focus:ring-2 focus:ring-king-red focus:border-transparent outline-none transition bg-stone-50 focus:bg-white text-sm"
+                    />
                   </div>
                   <button type="submit" className="w-full bg-king-gold text-king-dark font-bold py-4 rounded-lg hover:bg-yellow-400 transition-all transform hover:scale-[1.02] shadow-lg mt-2 text-sm md:text-base">
                     SOLICITAR PROPOSTA COMERCIAL

@@ -1,6 +1,7 @@
 import { createFileRoute } from "@tanstack/react-router";
 import { useEffect, useState, type FormEvent } from "react";
 import logoAsset from "@/assets/logo-corrida-cristo-rei-2026.png.asset.json";
+import igrejaAsset from "@/assets/igreja-comunidade-lorena.jpg.asset.json";
 
 export const Route = createFileRoute("/")({
   component: Index,
@@ -229,9 +230,9 @@ function Index() {
           <div className="md:w-1/2 relative w-full">
             <div className="absolute -top-4 -left-4 w-20 h-20 md:w-24 md:h-24 bg-king-gold rounded-full opacity-20" />
             <img
-              src="https://images.unsplash.com/photo-1518395295584-63529346d0e6?ixlib=rb-1.2.1&auto=format&fit=crop&w=1000&q=80"
+              src={igrejaAsset.url}
               alt="Igreja e Comunidade"
-              className="rounded-lg shadow-2xl relative z-10 w-full object-cover h-64 sm:h-80 md:h-96"
+              className="rounded-2xl shadow-2xl relative z-10 w-full object-cover h-64 sm:h-80 md:h-96"
             />
             <div className="absolute -bottom-4 -right-4 w-24 h-24 md:w-32 md:h-32 bg-king-red rounded-full opacity-20" />
           </div>

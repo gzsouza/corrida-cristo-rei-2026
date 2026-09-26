@@ -274,7 +274,7 @@ function Index() {
               headerBg: "bg-yellow-400", headerText: "text-king-dark", iconTint: "text-black/10",
               border: "border-yellow-400",
               items: ["Distâncias por Idade", "Recreação no Local", "Kit Camiseta, Medalha, Terço e Brindes"],
-              time: "Início Previsto: 08:30h*", note: "O horário da largada da Corrida Kids poderá ser alterada ao longo do evento.",
+              time: "Início Previsto: 08:00h*", note: "O horário da largada da Corrida Kids poderá ser alterada ao longo do evento.",
             },
             {
               title: "3 KM", icon: "fa-person-walking",
@@ -481,23 +481,9 @@ function Index() {
               <p className="text-stone-600 text-base md:text-lg mb-6 leading-relaxed">
                 A 5ª Corrida de Cristo Rei reunirá mais de 300 atletas, famílias e membros da comunidade em um dia de celebração.
               </p>
-              <p className="text-stone-600 mb-8 leading-relaxed text-sm md:text-base hidden md:block">
-                Ao se tornar um patrocinador, sua empresa ganha visibilidade destacada em nossas camisetas, pórticos e mídias sociais, além de demonstrar compromisso social apoiando diretamente as obras da Paróquia.
+              <p className="text-stone-600 mb-8 leading-relaxed text-sm md:text-base">
+                Ao apoiar nosso evento, sua marca conquista visibilidade estratégica em camisetas, mídias sociais, banners, stands, medalhas, troféus e brindes no kit do atleta, com benefícios exclusivos proporcionais a cada cota de patrocínio. Uma oportunidade única de associar sua empresa ao esporte e às obras sociais da Paróquia.
               </p>
-              <ul className="space-y-4 mb-8 text-left inline-block lg:block">
-                {[
-                  { i: "fa-bullhorn", t: "Visibilidade para +300 atletas no dia" },
-                  { i: "fa-shirt", t: "Marca na Camiseta Oficial do evento" },
-                  { i: "fa-hand-holding-heart", t: "Recibo de doação para fins fiscais" },
-                ].map((b) => (
-                  <li key={b.t} className="flex items-center text-king-dark font-medium text-sm md:text-base">
-                    <span className="w-8 h-8 rounded-full bg-king-gold/20 flex items-center justify-center text-king-gold mr-3 flex-shrink-0">
-                      <i className={`fa-solid ${b.i}`} />
-                    </span>
-                    {b.t}
-                  </li>
-                ))}
-              </ul>
             </div>
 
             <div className="lg:w-1/2 w-full">

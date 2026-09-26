@@ -1,5 +1,11 @@
 import { createFileRoute } from "@tanstack/react-router";
 import { useEffect, useState, type FormEvent } from "react";
+
+declare global {
+  interface Window {
+    dataLayer: Record<string, unknown>[];
+  }
+}
 import logoAsset from "@/assets/logo-corrida-cristo-rei-2026.png.asset.json";
 import igrejaAsset from "@/assets/igreja-comunidade-lorena.jpg.asset.json";
 
@@ -17,6 +23,30 @@ function Index() {
   const [modalidade, setModalidade] = useState("");
   const [modal, setModal] = useState<{ name: string; price: string } | null>(null);
   const [scrolled, setScrolled] = useState(false);
+  const [partner, setPartner] = useState({ empresa: "", responsavel: "", telefone: "", email: "" });
+
+  const pushDataLayer = (data: Record<string, unknown>) => {
+    window.dataLayer = window.dataLayer || [];
+    window.dataLayer.push(data);
+  };
+
+  const handlePartnerSubmit = (e: FormEvent<HTMLFormElement>) => {
+    e.preventDefault();
+    pushDataLayer({
+      event: "partner_form_submit",
+      form_name: "Quero ser Parceiro",
+      empresa: partner.empresa,
+      responsavel: partner.responsavel,
+      telefone: partner.telefone,
+      email: partner.email,
+    });
+    const subject = encodeURIComponent(`Proposta de Parceria - ${partner.empresa}`);
+    const body = encodeURIComponent(
+      `Nome da Empresa: ${partner.empresa}\nResponsável: ${partner.responsavel}\nTelefone / WhatsApp: ${partner.telefone}\nE-mail Corporativo: ${partner.email}`
+    );
+    window.location.href = `mailto:corridacristorei@gmail.com?subject=${subject}&body=${body}`;
+    alert("Obrigado pelo interesse! Nossa equipe de marketing entrará em contato em breve.");
+  };
 
   useEffect(() => {
     const eventDate = new Date("November 29, 2026 07:30:00").getTime();

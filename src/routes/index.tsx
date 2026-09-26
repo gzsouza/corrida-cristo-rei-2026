@@ -1,5 +1,6 @@
 import { createFileRoute } from "@tanstack/react-router";
 import { useEffect, useState, type FormEvent } from "react";
+import logoAsset from "@/assets/logo-corrida-cristo-rei-2026.png.asset.json";
 
 export const Route = createFileRoute("/")({
   component: Index,
@@ -94,9 +95,9 @@ function Index() {
         <div className="container mx-auto px-4 sm:px-6 py-2 md:py-3 flex justify-between items-center">
           <a href="#" className="flex items-center gap-3 group z-50">
             <img
-              src="https://via.placeholder.com/150x50/D4AF37/1f0508?text=LOGO+CORRIDA"
+              src={logoAsset.url}
               alt="Logo 5ª Corrida Cristo Rei"
-              className="h-10 md:h-12 w-auto object-contain group-hover:scale-105 transition-transform"
+              className="h-9 sm:h-10 md:h-12 lg:h-14 w-auto max-w-none object-contain group-hover:scale-105 transition-transform"
             />
           </a>
 

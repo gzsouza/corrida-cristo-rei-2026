@@ -242,7 +242,7 @@ function Index() {
               Correndo por um Propósito Maior
             </h2>
             <p className="text-stone-600 mb-6 leading-relaxed text-sm md:text-base">
-              A 5ª Corrida de Cristo Rei não é apenas um evento esportivo, mas um ato de comunhão. Todo o valor arrecadado com as inscrições será destinado à manutenção das obras sociais e reformas da Paróquia Cristo Rei de Lorena.
+              A 5ª Corrida de Cristo Rei não é apenas um evento esportivo, mas um ato de comunhão. Todo o valor arrecadado com as inscrições será destinado à troca do telhado da Paróquia Cristo Rei de Lorena.
             </p>
             <p className="text-stone-600 mb-8 leading-relaxed text-sm md:text-base">
               Ao participar, você cuida da sua saúde, celebra o encerramento das nossas festividades e ajuda diretamente nossa comunidade a continuar seus trabalhos de evangelização.
@@ -274,28 +274,28 @@ function Index() {
               headerBg: "bg-yellow-400", headerText: "text-king-dark", iconTint: "text-black/10",
               border: "border-yellow-400",
               items: ["Distâncias por Idade", "Recreação no Local", "Kit Camiseta, Medalha, Terço e Brindes"],
-              time: "Início: 09:30h",
+              time: "Início Previsto: 08:30h*", note: "O horário da largada da Corrida Kids poderá ser alterada ao longo do evento.",
             },
             {
               title: "3 KM", icon: "fa-person-walking",
               headerBg: "bg-stone-600", headerText: "text-white", iconTint: "text-white/10",
               border: "border-stone-500",
               items: ["Participativo (Sem Chip)", "Ideal para Famílias", "Kit Camiseta, Medalha, Terço e Brindes"],
-              time: "Largada: 07:00h",
+              time: "Largada: 07:00h", note: "",
             },
             {
               title: "5 KM", icon: "fa-stopwatch",
               headerBg: "bg-king-red/90", headerText: "text-white", iconTint: "text-white/10",
               border: "border-king-red",
-              items: ["Chip de Cronometragem", "Percurso Plano", "Kit Camiseta, Medalha, Terço e Brindes"],
-              time: "Largada: 07:00h",
+              items: ["Chip de Cronometragem", "Hidratação no percurso", "Kit Camiseta, Medalha, Terço e Brindes"],
+              time: "Largada: 07:00h", note: "",
             },
             {
               title: "10 KM", icon: "fa-road",
               headerBg: "bg-king-red", headerText: "text-white", iconTint: "text-white/10",
               border: "border-king-red",
               items: ["Chip de Cronometragem", "Hidratação no percurso", "Kit Camiseta, Medalha, Terço e Brindes"],
-              time: "Largada: 07:00h",
+              time: "Largada: 07:00h", note: "",
             },
           ].map((m) => (
             <div key={m.title} className={`bg-white rounded-2xl shadow-lg overflow-hidden group hover:shadow-2xl transition-all border-b-4 ${m.border} flex flex-col`}>
@@ -309,7 +309,7 @@ function Index() {
                     <li key={it}><i className="fa-solid fa-check text-green-500 mr-2" />{it}</li>
                   ))}
                 </ul>
-                <span className="block text-xl md:text-2xl font-bold text-king-dark mt-auto pt-4 border-t border-stone-100">{m.time}</span>
+                <span className="block text-xl md:text-2xl font-bold text-king-dark mt-auto pt-4 border-t border-stone-100">{m.time}</span>{m.note ? <p className="mt-2 text-[11px] leading-snug text-stone-500">{m.note}</p> : null}
               </div>
             </div>
           ))}
@@ -479,14 +479,14 @@ function Index() {
                 Associe sua marca à <span className="text-king-gold">Força do Esporte</span>
               </h2>
               <p className="text-stone-600 text-base md:text-lg mb-6 leading-relaxed">
-                A 5ª Corrida de Cristo Rei reunirá mais de 500 atletas, famílias e membros da comunidade em um dia de celebração.
+                A 5ª Corrida de Cristo Rei reunirá mais de 300 atletas, famílias e membros da comunidade em um dia de celebração.
               </p>
               <p className="text-stone-600 mb-8 leading-relaxed text-sm md:text-base hidden md:block">
                 Ao se tornar um patrocinador, sua empresa ganha visibilidade destacada em nossas camisetas, pórticos e mídias sociais, além de demonstrar compromisso social apoiando diretamente as obras da Paróquia.
               </p>
               <ul className="space-y-4 mb-8 text-left inline-block lg:block">
                 {[
-                  { i: "fa-bullhorn", t: "Visibilidade para +800 pessoas no dia" },
+                  { i: "fa-bullhorn", t: "Visibilidade para +300 atletas no dia" },
                   { i: "fa-shirt", t: "Marca na Camiseta Oficial do evento" },
                   { i: "fa-hand-holding-heart", t: "Recibo de doação para fins fiscais" },
                 ].map((b) => (

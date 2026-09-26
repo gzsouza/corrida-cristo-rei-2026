@@ -1,5 +1,11 @@
 import { createFileRoute } from "@tanstack/react-router";
 import { useEffect, useState, type FormEvent } from "react";
+
+declare global {
+  interface Window {
+    dataLayer: Record<string, unknown>[];
+  }
+}
 import logoAsset from "@/assets/logo-corrida-cristo-rei-2026.png.asset.json";
 import igrejaAsset from "@/assets/igreja-comunidade-lorena.jpg.asset.json";
 
@@ -17,6 +23,30 @@ function Index() {
   const [modalidade, setModalidade] = useState("");
   const [modal, setModal] = useState<{ name: string; price: string } | null>(null);
   const [scrolled, setScrolled] = useState(false);
+  const [partner, setPartner] = useState({ empresa: "", responsavel: "", telefone: "", email: "" });
+
+  const pushDataLayer = (data: Record<string, unknown>) => {
+    window.dataLayer = window.dataLayer || [];
+    window.dataLayer.push(data);
+  };
+
+  const handlePartnerSubmit = (e: FormEvent<HTMLFormElement>) => {
+    e.preventDefault();
+    pushDataLayer({
+      event: "partner_form_submit",
+      form_name: "Quero ser Parceiro",
+      empresa: partner.empresa,
+      responsavel: partner.responsavel,
+      telefone: partner.telefone,
+      email: partner.email,
+    });
+    const subject = encodeURIComponent(`Proposta de Parceria - ${partner.empresa}`);
+    const body = encodeURIComponent(
+      `Nome da Empresa: ${partner.empresa}\nResponsável: ${partner.responsavel}\nTelefone / WhatsApp: ${partner.telefone}\nE-mail Corporativo: ${partner.email}`
+    );
+    window.location.href = `mailto:corridacristorei@gmail.com?subject=${subject}&body=${body}`;
+    alert("Obrigado pelo interesse! Nossa equipe de marketing entrará em contato em breve.");
+  };
 
   useEffect(() => {
     const eventDate = new Date("November 29, 2026 07:30:00").getTime();
@@ -274,7 +304,7 @@ function Index() {
               headerBg: "bg-yellow-400", headerText: "text-king-dark", iconTint: "text-black/10",
               border: "border-yellow-400",
               items: ["Distâncias por Idade", "Recreação no Local", "Kit Camiseta, Medalha, Terço e Brindes"],
-              time: "Início Previsto: 08:30h*", note: "O horário da largada da Corrida Kids poderá ser alterada ao longo do evento.",
+              time: "Início Previsto: 08:00h*", note: "O horário da largada da Corrida Kids poderá ser alterada ao longo do evento.",
             },
             {
               title: "3 KM", icon: "fa-person-walking",
@@ -481,23 +511,9 @@ function Index() {
               <p className="text-stone-600 text-base md:text-lg mb-6 leading-relaxed">
                 A 5ª Corrida de Cristo Rei reunirá mais de 300 atletas, famílias e membros da comunidade em um dia de celebração.
               </p>
-              <p className="text-stone-600 mb-8 leading-relaxed text-sm md:text-base hidden md:block">
-                Ao se tornar um patrocinador, sua empresa ganha visibilidade destacada em nossas camisetas, pórticos e mídias sociais, além de demonstrar compromisso social apoiando diretamente as obras da Paróquia.
+              <p className="text-stone-600 mb-8 leading-relaxed text-sm md:text-base">
+                Ao apoiar nosso evento, sua marca conquista visibilidade estratégica em camisetas, mídias sociais, banners, stands, medalhas, troféus e brindes no kit do atleta, com benefícios exclusivos proporcionais a cada cota de patrocínio. Uma oportunidade única de associar sua empresa ao esporte e às obras sociais da Paróquia.
               </p>
-              <ul className="space-y-4 mb-8 text-left inline-block lg:block">
-                {[
-                  { i: "fa-bullhorn", t: "Visibilidade para +300 atletas no dia" },
-                  { i: "fa-shirt", t: "Marca na Camiseta Oficial do evento" },
-                  { i: "fa-hand-holding-heart", t: "Recibo de doação para fins fiscais" },
-                ].map((b) => (
-                  <li key={b.t} className="flex items-center text-king-dark font-medium text-sm md:text-base">
-                    <span className="w-8 h-8 rounded-full bg-king-gold/20 flex items-center justify-center text-king-gold mr-3 flex-shrink-0">
-                      <i className={`fa-solid ${b.i}`} />
-                    </span>
-                    {b.t}
-                  </li>
-                ))}
-              </ul>
             </div>
 
             <div className="lg:w-1/2 w-full">
@@ -506,35 +522,61 @@ function Index() {
                   <h3 className="text-xl md:text-2xl font-display font-bold text-king-dark">Quero ser Parceiro</h3>
                   <p className="text-xs md:text-sm text-stone-500">Preencha e entraremos em contato com as cotas disponíveis.</p>
                 </div>
-                <form
-                  className="space-y-4"
-                  onSubmit={(e) => {
-                    e.preventDefault();
-                    alert("Obrigado pelo interesse! Nossa equipe de marketing entrará em contato em breve.");
-                  }}
-                >
+                <form className="space-y-4" onSubmit={handlePartnerSubmit}>
                   <div>
                     <label className="block text-sm font-bold text-stone-700 mb-1">Nome da Empresa</label>
                     <div className="relative">
                       <div className="absolute inset-y-0 left-0 pl-3 flex items-center pointer-events-none">
                         <i className="fa-solid fa-building text-stone-400" />
                       </div>
-                      <input type="text" placeholder="Sua Empresa Ltda" className="w-full pl-10 pr-4 py-3 border border-stone-200 rounded-lg focus:ring-2 focus:ring-king-red focus:border-transparent outline-none transition bg-stone-50 focus:bg-white text-sm" />
+                      <input
+                        type="text"
+                        placeholder="Sua Empresa Ltda"
+                        required
+                        value={partner.empresa}
+                        onChange={(e) => setPartner({ ...partner, empresa: e.target.value })}
+                        onBlur={() => partner.empresa && pushDataLayer({ event: "partner_field", field: "nome_empresa", value: partner.empresa })}
+                        className="w-full pl-10 pr-4 py-3 border border-stone-200 rounded-lg focus:ring-2 focus:ring-king-red focus:border-transparent outline-none transition bg-stone-50 focus:bg-white text-sm"
+                      />
                     </div>
                   </div>
                   <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
                     <div>
                       <label className="block text-sm font-bold text-stone-700 mb-1">Responsável</label>
-                      <input type="text" placeholder="Seu nome" className="w-full px-4 py-3 border border-stone-200 rounded-lg focus:ring-2 focus:ring-king-red focus:border-transparent outline-none transition bg-stone-50 focus:bg-white text-sm" />
+                      <input
+                        type="text"
+                        placeholder="Seu nome"
+                        required
+                        value={partner.responsavel}
+                        onChange={(e) => setPartner({ ...partner, responsavel: e.target.value })}
+                        onBlur={() => partner.responsavel && pushDataLayer({ event: "partner_field", field: "responsavel", value: partner.responsavel })}
+                        className="w-full px-4 py-3 border border-stone-200 rounded-lg focus:ring-2 focus:ring-king-red focus:border-transparent outline-none transition bg-stone-50 focus:bg-white text-sm"
+                      />
                     </div>
                     <div>
                       <label className="block text-sm font-bold text-stone-700 mb-1">Telefone / WhatsApp</label>
-                      <input type="tel" placeholder="(XX) 99999-9999" className="w-full px-4 py-3 border border-stone-200 rounded-lg focus:ring-2 focus:ring-king-red focus:border-transparent outline-none transition bg-stone-50 focus:bg-white text-sm" />
+                      <input
+                        type="tel"
+                        placeholder="(XX) 99999-9999"
+                        required
+                        value={partner.telefone}
+                        onChange={(e) => setPartner({ ...partner, telefone: e.target.value })}
+                        onBlur={() => partner.telefone && pushDataLayer({ event: "partner_field", field: "telefone", value: partner.telefone })}
+                        className="w-full px-4 py-3 border border-stone-200 rounded-lg focus:ring-2 focus:ring-king-red focus:border-transparent outline-none transition bg-stone-50 focus:bg-white text-sm"
+                      />
                     </div>
                   </div>
                   <div>
                     <label className="block text-sm font-bold text-stone-700 mb-1">E-mail Corporativo</label>
-                    <input type="email" placeholder="contato@suaempresa.com" className="w-full px-4 py-3 border border-stone-200 rounded-lg focus:ring-2 focus:ring-king-red focus:border-transparent outline-none transition bg-stone-50 focus:bg-white text-sm" />
+                    <input
+                      type="email"
+                      placeholder="contato@suaempresa.com"
+                      required
+                      value={partner.email}
+                      onChange={(e) => setPartner({ ...partner, email: e.target.value })}
+                      onBlur={() => partner.email && pushDataLayer({ event: "partner_field", field: "email", value: partner.email })}
+                      className="w-full px-4 py-3 border border-stone-200 rounded-lg focus:ring-2 focus:ring-king-red focus:border-transparent outline-none transition bg-stone-50 focus:bg-white text-sm"
+                    />
                   </div>
                   <button type="submit" className="w-full bg-king-gold text-king-dark font-bold py-4 rounded-lg hover:bg-yellow-400 transition-all transform hover:scale-[1.02] shadow-lg mt-2 text-sm md:text-base">
                     SOLICITAR PROPOSTA COMERCIAL

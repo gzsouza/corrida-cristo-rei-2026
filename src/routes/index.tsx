@@ -13,7 +13,8 @@ import dbnetAsset from "@/assets/logo-dbnet.png.asset.json";
 import zaninAsset from "@/assets/logo-zanin-motors.png.asset.json";
 import siSerralheriaAsset from "@/assets/logo-si-serralheria.png.asset.json";
 import wowAsset from "@/assets/logo-wow-lavanderia.png.asset.json";
-import ninniAsset from "@/assets/logo-ninni-sushi.png.asset.json";
+import ninniAsset from "@/assets/logo-ninni-sushi-bar.png.asset.json";
+import planoMutuoAsset from "@/assets/logo-plano-mutuo-medc.png.asset.json";
 
 export const Route = createFileRoute("/")({
   component: Index,

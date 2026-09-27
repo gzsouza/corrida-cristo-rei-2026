@@ -639,7 +639,7 @@ function Index() {
               <span className="h-px w-8 bg-king-gold/30" /> Patrocínio Premium <span className="h-px w-8 bg-king-gold/30" />
             </h3>
             <div className="flex justify-center">
-              <div className="w-64 h-40 md:w-80 md:h-48 bg-white rounded-xl shadow-md shadow-stone-200/70 ring-1 ring-stone-100 flex items-center justify-center p-6 md:p-8 transition-all duration-300 transform hover:scale-105">
+              <div className="w-[333px] h-[208px] max-w-[calc(100vw-2rem)] md:w-[416px] md:h-[250px] bg-white rounded-xl shadow-md shadow-stone-200/70 ring-1 ring-stone-100 flex items-center justify-center p-8 md:p-[42px] transition-all duration-300 transform hover:scale-105">
                 <img src={kidocuraAsset.url} alt="Patrocinador Premium - Kidoçura" className="max-w-full max-h-full w-auto h-auto object-contain" />
               </div>
             </div>

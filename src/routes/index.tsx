@@ -647,12 +647,22 @@ function Index() {
           {/* Diamante */}
           <div className="mb-16">
             <h3 className="text-cyan-600 font-display font-bold text-lg md:text-xl mb-6 uppercase tracking-wider">Patrocínio Diamante</h3>
-            <div className="flex flex-wrap justify-center items-center gap-8 md:gap-12">
-              {[0, 1].map((i) => (
-                <div key={i} className="w-40 h-28 md:w-56 md:h-36 bg-white shadow-sm rounded-lg flex items-center justify-center p-4 grayscale hover:grayscale-0 transition-all duration-300 transform hover:scale-105">
-                  <img src="https://via.placeholder.com/180x90?text=LOGO+DIAMANTE" alt="Patrocinador Diamante" className="max-w-full max-h-full object-contain" />
+            <div className="grid grid-cols-2 sm:grid-cols-3 gap-4 md:gap-6 max-w-4xl mx-auto">
+              {[
+                { src: zaninAsset.url, alt: "Patrocinador Diamante - Zanin Motors" },
+                { src: dbnetAsset.url, alt: "Patrocinador Diamante - DBNet Internet Fibra" },
+                { src: siSerralheriaAsset.url, alt: "Patrocinador Diamante - S.I. Serralheria" },
+                { src: wowAsset.url, alt: "Patrocinador Diamante - Wow! A Sua Lavanderia" },
+                { src: ninniAsset.url, alt: "Patrocinador Diamante - Ninni Sushi Bar" },
+              ].map((logo) => (
+                <div key={logo.alt} className="h-28 md:h-36 bg-white shadow-md shadow-stone-200/70 ring-1 ring-stone-100 rounded-xl flex items-center justify-center p-4 md:p-6 transition-all duration-300 transform hover:scale-105">
+                  <img src={logo.src} alt={logo.alt} className="max-w-full max-h-full w-auto h-auto object-contain" />
                 </div>
               ))}
+              <div className="h-28 md:h-36 border-2 border-dashed border-stone-300 rounded-xl flex flex-col items-center justify-center p-4 text-stone-400 transition-all duration-300 hover:border-king-gold hover:text-king-gold">
+                <i className="fa-solid fa-plus text-xl mb-2" />
+                <span className="text-[11px] md:text-xs font-semibold uppercase tracking-wider text-center">Sua logo aqui</span>
+              </div>
             </div>
           </div>
 

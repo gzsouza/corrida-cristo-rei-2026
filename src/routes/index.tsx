@@ -639,7 +639,7 @@ function Index() {
               <span className="h-px w-8 bg-king-gold/30" /> Patrocínio Premium <span className="h-px w-8 bg-king-gold/30" />
             </h3>
             <div className="flex justify-center">
-              <div className="w-56 h-32 md:w-72 md:h-44 bg-white rounded-xl shadow-md shadow-stone-200/70 ring-1 ring-stone-100 flex items-center justify-center p-6 md:p-8 transition-all duration-300 transform hover:scale-105">
+              <div className="w-64 h-40 md:w-80 md:h-48 bg-white rounded-xl shadow-md shadow-stone-200/70 ring-1 ring-stone-100 flex items-center justify-center p-6 md:p-8 transition-all duration-300 transform hover:scale-105">
                 <img src={kidocuraAsset.url} alt="Patrocinador Premium - Kidoçura" className="max-w-full max-h-full w-auto h-auto object-contain" />
               </div>
             </div>
@@ -655,10 +655,10 @@ function Index() {
                 { src: planoMutuoAsset.url, alt: "Patrocinador Diamante - Plano Mútuo MEDC Funerária Central" },
                 { src: dbnetAsset.url, alt: "Patrocinador Diamante - DBNet Internet Fibra" },
                 { src: siSerralheriaAsset.url, alt: "Patrocinador Diamante - S.I. Serralheria" },
-                { src: ninniAsset.url, alt: "Patrocinador Diamante - Ninni Sushi Bar" },
-              ].map((logo) => (
+                { src: ninniAsset.url, alt: "Patrocinador Diamante - Ninni Sushi Bar", imgClass: "max-w-[84%] max-h-[84%]" },
+              ].map(({ imgClass = "max-w-full max-h-full", ...logo }) => (
                 <div key={logo.alt} className="h-28 md:h-36 bg-white shadow-md shadow-stone-200/70 ring-1 ring-stone-100 rounded-xl flex items-center justify-center p-4 md:p-6 transition-all duration-300 transform hover:scale-105">
-                  <img src={logo.src} alt={logo.alt} className="max-w-full max-h-full w-auto h-auto object-contain" />
+                  <img src={logo.src} alt={logo.alt} className={`${imgClass} w-auto h-auto object-contain`} />
                 </div>
               ))}
             </div>

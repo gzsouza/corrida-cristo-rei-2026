@@ -15,6 +15,7 @@ import siSerralheriaAsset from "@/assets/logo-si-serralheria.png.asset.json";
 import wowAsset from "@/assets/logo-wow-lavanderia.png.asset.json";
 import ninniAsset from "@/assets/logo-ninni-sushi-bar.png.asset.json";
 import planoMutuoAsset from "@/assets/logo-plano-mutuo-medc.png.asset.json";
+import trevoShoppingLogo from "@/assets/logo-trevo-shopping-ouro.png";
 
 export const Route = createFileRoute("/")({
   component: Index,
@@ -668,7 +669,10 @@ function Index() {
           <div className="mb-14">
             <h3 className="text-yellow-600 font-display font-bold text-lg md:text-xl mb-6 uppercase tracking-wider">Patrocínio Ouro</h3>
             <div className="flex flex-wrap justify-center items-center gap-6 md:gap-8">
-              {[0, 1, 2].map((i) => (
+              <div className="w-36 h-24 md:w-48 md:h-32 bg-white shadow-sm rounded-lg flex items-center justify-center p-4 transition-all">
+                <img src={trevoShoppingLogo} alt="Patrocinador Ouro - Trevo Shopping da Construção" className="max-w-full max-h-full object-contain" />
+              </div>
+              {[1, 2].map((i) => (
                 <div key={i} className="w-36 h-24 md:w-48 md:h-32 bg-white shadow-sm rounded-lg flex items-center justify-center p-4 grayscale hover:grayscale-0 transition-all">
                   <img src="https://via.placeholder.com/150x80?text=LOGO+OURO" alt="Patrocinador Ouro" className="max-w-full max-h-full object-contain" />
                 </div>

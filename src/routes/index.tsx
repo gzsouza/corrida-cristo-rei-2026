@@ -8,6 +8,7 @@ declare global {
 }
 import logoAsset from "@/assets/logo-corrida-cristo-rei-2026.png.asset.json";
 import igrejaAsset from "@/assets/igreja-comunidade-lorena.jpg.asset.json";
+import kidocuraAsset from "@/assets/logo-kidocura.png.asset.json";
 
 export const Route = createFileRoute("/")({
   component: Index,
@@ -632,8 +633,8 @@ function Index() {
               <span className="h-px w-8 bg-king-gold/30" /> Patrocínio Premium <span className="h-px w-8 bg-king-gold/30" />
             </h3>
             <div className="flex justify-center">
-              <div className="w-48 h-32 md:w-64 md:h-40 bg-white shadow-sm rounded-lg flex items-center justify-center p-4 grayscale hover:grayscale-0 transition-all duration-300 transform hover:scale-105">
-                <img src="https://via.placeholder.com/200x100?text=LOGO+PREMIUM" alt="Patrocinador Premium" className="max-w-full max-h-full object-contain" />
+              <div className="w-56 h-32 md:w-72 md:h-44 bg-white rounded-xl shadow-md shadow-stone-200/70 ring-1 ring-stone-100 flex items-center justify-center p-6 md:p-8 transition-all duration-300 transform hover:scale-105">
+                <img src={kidocuraAsset.url} alt="Patrocinador Premium - Kidoçura" className="max-w-full max-h-full w-auto h-auto object-contain" />
               </div>
             </div>
           </div>

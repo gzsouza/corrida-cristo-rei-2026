@@ -15,6 +15,11 @@ import siSerralheriaAsset from "@/assets/logo-si-serralheria.png.asset.json";
 import wowAsset from "@/assets/logo-wow-lavanderia.png.asset.json";
 import ninniAsset from "@/assets/logo-ninni-sushi-bar.png.asset.json";
 import planoMutuoAsset from "@/assets/logo-plano-mutuo-medc.png.asset.json";
+import objetivoAsset from "@/assets/logo-objetivo-lorena.png.asset.json";
+import cleofasAsset from "@/assets/logo-editora-cleofas.png.asset.json";
+import evelynAsset from "@/assets/logo-evelyn-moda-fitness.png.asset.json";
+import padariaPrincesaAsset from "@/assets/logo-padaria-princesa.png.asset.json";
+import vilaPastelAsset from "@/assets/logo-vila-pastel.jpeg.asset.json";
 import trevoShoppingLogo from "@/assets/logo-trevo-shopping-ouro.png";
 
 export const Route = createFileRoute("/")({
@@ -668,13 +673,17 @@ function Index() {
           {/* Ouro */}
           <div className="mb-14">
             <h3 className="text-yellow-600 font-display font-bold text-lg md:text-xl mb-6 uppercase tracking-wider">Patrocínio Ouro</h3>
-            <div className="flex flex-wrap justify-center items-center gap-6 md:gap-8">
-              <div className="w-36 h-24 md:w-48 md:h-32 bg-white shadow-sm rounded-lg flex items-center justify-center p-4 transition-all">
-                <img src={trevoShoppingLogo} alt="Patrocinador Ouro - Trevo Shopping da Construção" className="max-w-full max-h-full object-contain" />
-              </div>
-              {[1, 2].map((i) => (
-                <div key={i} className="w-36 h-24 md:w-48 md:h-32 bg-white shadow-sm rounded-lg flex items-center justify-center p-4 grayscale hover:grayscale-0 transition-all">
-                  <img src="https://via.placeholder.com/150x80?text=LOGO+OURO" alt="Patrocinador Ouro" className="max-w-full max-h-full object-contain" />
+            <div className="grid grid-cols-2 md:grid-cols-3 gap-3 sm:gap-4 max-w-3xl mx-auto">
+              {[
+                { src: trevoShoppingLogo, alt: "Patrocinador Ouro - Trevo Shopping da Construção", imgClass: "max-w-[88%] max-h-[78%]" },
+                { src: objetivoAsset.url, alt: "Patrocinador Ouro - Objetivo Lorena", imgClass: "max-w-[92%] max-h-[58%]" },
+                { src: cleofasAsset.url, alt: "Patrocinador Ouro - Editora Cléofas", imgClass: "max-w-[86%] max-h-[74%]" },
+                { src: evelynAsset.url, alt: "Patrocinador Ouro - Evelyn Moda Fitness", imgClass: "max-w-[66%] max-h-[82%] [image-rendering:-webkit-optimize-contrast] [image-rendering:crisp-edges] contrast-[1.04] brightness-[1.01]" },
+                { src: padariaPrincesaAsset.url, alt: "Patrocinador Ouro - Padaria Princesa", imgClass: "max-w-[68%] max-h-[84%]" },
+                { src: vilaPastelAsset.url, alt: "Patrocinador Ouro - Vila Pastel", imgClass: "max-w-[88%] max-h-[70%]" },
+              ].map((logo) => (
+                <div key={logo.alt} className="h-24 sm:h-26 md:h-28 bg-white shadow-sm shadow-stone-200/70 ring-1 ring-stone-100 rounded-lg flex items-center justify-center p-3 sm:p-4 transition-transform duration-300 hover:scale-[1.03]">
+                  <img src={logo.src} alt={logo.alt} className={`${logo.imgClass} w-auto h-auto object-contain`} />
                 </div>
               ))}
             </div>

@@ -15,7 +15,7 @@ import siSerralheriaAsset from "@/assets/logo-si-serralheria.png.asset.json";
 import wowAsset from "@/assets/logo-wow-lavanderia.png.asset.json";
 import ninniAsset from "@/assets/logo-ninni-sushi-bar.png.asset.json";
 import planoMutuoAsset from "@/assets/logo-plano-mutuo-medc.png.asset.json";
-import objetivoAsset from "@/assets/logo-objetivo-lorena.png.asset.json";
+import objetivoLogo from "@/assets/logo-objetivo-lorena-transparente.png";
 import cleofasAsset from "@/assets/logo-editora-cleofas.png.asset.json";
 import evelynAsset from "@/assets/logo-evelyn-moda-fitness.png.asset.json";
 import padariaPrincesaAsset from "@/assets/logo-padaria-princesa.png.asset.json";
@@ -676,10 +676,10 @@ function Index() {
             <div className="grid grid-cols-2 md:grid-cols-3 gap-3 sm:gap-4 max-w-3xl mx-auto">
               {[
                 { src: trevoShoppingLogo, alt: "Patrocinador Ouro - Trevo Shopping da Construção", imgClass: "max-w-[88%] max-h-[78%]" },
-                { src: objetivoAsset.url, alt: "Patrocinador Ouro - Objetivo Lorena", imgClass: "max-w-[92%] max-h-[58%]" },
+                { src: objetivoLogo, alt: "Patrocinador Ouro - Objetivo Lorena", imgClass: "max-w-[92%] max-h-[58%]" },
                 { src: cleofasAsset.url, alt: "Patrocinador Ouro - Editora Cléofas", imgClass: "max-w-[86%] max-h-[74%]" },
-                { src: evelynAsset.url, alt: "Patrocinador Ouro - Evelyn Moda Fitness", imgClass: "max-w-[66%] max-h-[82%] [image-rendering:-webkit-optimize-contrast] [image-rendering:crisp-edges] contrast-[1.04] brightness-[1.01]" },
-                { src: padariaPrincesaAsset.url, alt: "Patrocinador Ouro - Padaria Princesa", imgClass: "max-w-[68%] max-h-[84%]" },
+                { src: evelynAsset.url, alt: "Patrocinador Ouro - Evelyn Moda Fitness", imgClass: "max-w-[76%] max-h-[94%] [image-rendering:-webkit-optimize-contrast] [image-rendering:crisp-edges] contrast-[1.04] brightness-[1.01]" },
+                { src: padariaPrincesaAsset.url, alt: "Patrocinador Ouro - Padaria Princesa", imgClass: "max-w-[78%] max-h-[96%]" },
                 { src: vilaPastelAsset.url, alt: "Patrocinador Ouro - Vila Pastel", imgClass: "max-w-[88%] max-h-[70%]" },
               ].map((logo) => (
                 <div key={logo.alt} className="h-24 sm:h-26 md:h-28 bg-white shadow-sm shadow-stone-200/70 ring-1 ring-stone-100 rounded-lg flex items-center justify-center p-3 sm:p-4 transition-transform duration-300 hover:scale-[1.03]">

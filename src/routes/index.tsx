@@ -658,7 +658,6 @@ function Index() {
             <div className="grid grid-cols-2 sm:grid-cols-3 gap-4 md:gap-6 max-w-4xl mx-auto">
               {[
                 { src: zaninAsset.url, alt: "Patrocinador Diamante - Zanin Motors" },
-                { src: wowAsset.url, alt: "Patrocinador Diamante - Wow! A Sua Lavanderia" },
                 { src: planoMutuoAsset.url, alt: "Patrocinador Diamante - Plano Mútuo MEDC Funerária Central" },
                 { src: dbnetAsset.url, alt: "Patrocinador Diamante - DBNet Internet Fibra" },
                 { src: siSerralheriaAsset.url, alt: "Patrocinador Diamante - S.I. Serralheria" },

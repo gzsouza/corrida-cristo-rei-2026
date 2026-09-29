@@ -12,7 +12,6 @@ import kidocuraAsset from "@/assets/logo-kidocura.png.asset.json";
 import dbnetAsset from "@/assets/logo-dbnet.png.asset.json";
 import zaninAsset from "@/assets/logo-zanin-motors.png.asset.json";
 import siSerralheriaAsset from "@/assets/logo-si-serralheria.png.asset.json";
-import wowAsset from "@/assets/logo-wow-lavanderia.png.asset.json";
 import ninniAsset from "@/assets/logo-ninni-sushi-bar.png.asset.json";
 import planoMutuoAsset from "@/assets/logo-plano-mutuo-medc.png.asset.json";
 import cristoReiAsset from "@/assets/logo-cristo-rei.png.asset.json";
@@ -658,7 +657,6 @@ function Index() {
             <div className="grid grid-cols-2 sm:grid-cols-3 gap-4 md:gap-6 max-w-4xl mx-auto">
               {[
                 { src: zaninAsset.url, alt: "Patrocinador Diamante - Zanin Motors" },
-                { src: wowAsset.url, alt: "Patrocinador Diamante - Wow! A Sua Lavanderia" },
                 { src: planoMutuoAsset.url, alt: "Patrocinador Diamante - Plano Mútuo MEDC Funerária Central" },
                 { src: dbnetAsset.url, alt: "Patrocinador Diamante - DBNet Internet Fibra" },
                 { src: siSerralheriaAsset.url, alt: "Patrocinador Diamante - S.I. Serralheria" },
@@ -674,11 +672,9 @@ function Index() {
           {/* Ouro */}
           <div className="mb-14">
             <h3 className="text-yellow-600 font-display font-bold text-lg md:text-xl mb-6 uppercase tracking-wider">Patrocínio Ouro</h3>
-            <div className="grid grid-cols-2 md:grid-cols-3 gap-3 sm:gap-4 max-w-3xl mx-auto">
+            <div className="grid grid-cols-2 gap-3 sm:gap-4 max-w-xl mx-auto">
               {[
                 { src: trevoShoppingLogo, alt: "Patrocinador Ouro - Trevo Shopping da Construção", imgClass: "max-w-[88%] max-h-[78%]" },
-                { src: objetivoLogo, alt: "Patrocinador Ouro - Objetivo Lorena", imgClass: "max-w-[92%] max-h-[58%]" },
-                { src: cleofasAsset.url, alt: "Patrocinador Ouro - Editora Cléofas", imgClass: "max-w-[86%] max-h-[74%]" },
                 { src: evelynAsset.url, alt: "Patrocinador Ouro - Evelyn Moda Fitness", imgClass: "max-w-[76%] max-h-[94%] [image-rendering:-webkit-optimize-contrast] [image-rendering:crisp-edges] contrast-[1.04] brightness-[1.01]" },
                 { src: padariaPrincesaAsset.url, alt: "Patrocinador Ouro - Padaria Princesa", imgClass: "max-w-[78%] max-h-[96%]" },
                 { src: vilaPastelAsset.url, alt: "Patrocinador Ouro - Vila Pastel", imgClass: "max-w-[88%] max-h-[70%]" },
@@ -694,6 +690,14 @@ function Index() {
           <div className="mb-12">
             <h3 className="text-stone-400 font-display font-bold text-base md:text-lg mb-6 uppercase tracking-wider">Patrocínio Prata</h3>
             <div className="flex flex-wrap justify-center items-center gap-4 md:gap-6">
+              {[
+                { src: objetivoLogo, alt: "Patrocinador Prata - Objetivo Lorena", imgClass: "max-w-[92%] max-h-[58%]" },
+                { src: cleofasAsset.url, alt: "Patrocinador Prata - Editora Cléofas", imgClass: "max-w-[86%] max-h-[74%]" },
+              ].map((logo) => (
+                <div key={logo.alt} className="h-24 sm:h-26 md:h-28 bg-white shadow-sm shadow-stone-200/70 ring-1 ring-stone-100 rounded-lg flex items-center justify-center p-3 sm:p-4 transition-transform duration-300 hover:scale-[1.03]">
+                  <img src={logo.src} alt={logo.alt} className={`${logo.imgClass} w-auto h-auto object-contain`} />
+                </div>
+              ))}
               {[0, 1, 2, 3].map((i) => (
                 <div key={i} className="w-28 h-20 md:w-36 md:h-24 bg-white/50 border border-stone-100 rounded flex items-center justify-center p-3 grayscale hover:grayscale-0 transition-all">
                   <img src="https://via.placeholder.com/120x60?text=LOGO+PRATA" alt="Patrocinador Prata" className="max-w-full max-h-full object-contain" />
@@ -720,7 +724,7 @@ function Index() {
               <div className="flex flex-col items-center">
                 <h3 className="text-king-dark font-display font-bold text-sm md:text-base mb-6 uppercase tracking-wider">Realização</h3>
                 <div className="w-full max-w-[400px] h-28 md:h-36 bg-white shadow-md shadow-stone-200/70 ring-1 ring-stone-100 rounded-xl flex items-center justify-center p-4 md:p-6 transform hover:scale-105 transition-all duration-300">
-                  <img src={cristoReiAsset.url} alt="Realização Paróquia Cristo Rei" className="max-w-full max-h-full w-auto h-auto object-contain" />
+                  <img src={cristoReiAsset.url} alt="Realização Paróquia Cristo Rei" className="max-w-full max-h-full w-auto h-auto object-contain scale-[1.3]" />
                 </div>
               </div>
               <div className="flex flex-col items-center">

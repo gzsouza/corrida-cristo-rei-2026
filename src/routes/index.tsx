@@ -15,6 +15,7 @@ import siSerralheriaAsset from "@/assets/logo-si-serralheria.png.asset.json";
 import wowAsset from "@/assets/logo-wow-lavanderia.png.asset.json";
 import ninniAsset from "@/assets/logo-ninni-sushi-bar.png.asset.json";
 import planoMutuoAsset from "@/assets/logo-plano-mutuo-medc.png.asset.json";
+import cristoReiAsset from "@/assets/logo-cristo-rei.png.asset.json";
 import objetivoLogo from "@/assets/logo-objetivo-lorena-transparente.png";
 import cleofasAsset from "@/assets/logo-editora-cleofas.png.asset.json";
 import evelynAsset from "@/assets/logo-evelyn-moda-fitness.png.asset.json";

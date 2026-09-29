@@ -21,6 +21,14 @@ import evelynAsset from "@/assets/logo-evelyn-moda-fitness.png.asset.json";
 import padariaPrincesaAsset from "@/assets/logo-padaria-princesa.png.asset.json";
 import vilaPastelAsset from "@/assets/logo-vila-pastel.jpeg.asset.json";
 import trevoShoppingLogo from "@/assets/logo-trevo-shopping-ouro.png";
+import pinhalAsset from "@/assets/logo-madereira-pinhal.png.asset.json";
+import maniaLimpezaAsset from "@/assets/logo-mania-de-limpeza.png.asset.json";
+import marcelaAsset from "@/assets/logo-marcela-ambientes.png.asset.json";
+import reinoPetAsset from "@/assets/logo-reino-pet.png.asset.json";
+import samahaAsset from "@/assets/logo-samaha.png.asset.json";
+import valgroupAsset from "@/assets/logo-valgroup.png.asset.json";
+import varejaoAsset from "@/assets/logo-varejao-tintas.png.asset.json";
+import ibisAsset from "@/assets/logo-ibis.png.asset.json";
 
 export const Route = createFileRoute("/")({
   component: Index,
@@ -689,20 +697,26 @@ function Index() {
           {/* Prata */}
           <div className="mb-12">
             <h3 className="text-stone-400 font-display font-bold text-base md:text-lg mb-6 uppercase tracking-wider">Patrocínio Prata</h3>
-            <div className="flex flex-wrap justify-center items-center gap-4 md:gap-6">
+            <div className="grid grid-cols-2 sm:grid-cols-3 gap-3 sm:gap-4 max-w-3xl mx-auto">
               {[
                 { src: objetivoLogo, alt: "Patrocinador Prata - Objetivo Lorena", imgClass: "max-w-[92%] max-h-[58%]" },
+                { src: marcelaAsset.url, alt: "Patrocinador Prata - Marcela Ambientes Planejados", imgClass: "max-w-[92%] max-h-[62%]" },
                 { src: cleofasAsset.url, alt: "Patrocinador Prata - Editora Cléofas", imgClass: "max-w-[86%] max-h-[74%]" },
+                { src: pinhalAsset.url, alt: "Patrocinador Prata - Madeireira Pinhal", imgClass: "max-w-[74%] max-h-[92%]" },
+                { src: varejaoAsset.url, alt: "Patrocinador Prata - Varejão Tintas", imgClass: "max-w-[94%] max-h-[56%]" },
+                { src: valgroupAsset.url, alt: "Patrocinador Prata - Valgroup", imgClass: "max-w-[90%] max-h-[58%]" },
+                { src: maniaLimpezaAsset.url, alt: "Patrocinador Prata - Mania de Limpeza", imgClass: "max-w-[80%] max-h-[88%]" },
+                { src: samahaAsset.url, alt: "Patrocinador Prata - Samaha Store", imgClass: "max-w-[90%] max-h-[64%]" },
+                { src: reinoPetAsset.url, alt: "Patrocinador Prata - Reino Pet", imgClass: "max-w-[88%] max-h-[62%]" },
+                { src: ibisAsset.url, alt: "Patrocinador Prata - Ibis Budget", imgClass: "max-w-[78%] max-h-[84%]" },
               ].map((logo) => (
                 <div key={logo.alt} className="h-24 sm:h-26 md:h-28 bg-white shadow-sm shadow-stone-200/70 ring-1 ring-stone-100 rounded-lg flex items-center justify-center p-3 sm:p-4 transition-transform duration-300 hover:scale-[1.03]">
                   <img src={logo.src} alt={logo.alt} className={`${logo.imgClass} w-auto h-auto object-contain`} />
                 </div>
               ))}
-              {[0, 1, 2, 3].map((i) => (
-                <div key={i} className="w-28 h-20 md:w-36 md:h-24 bg-white/50 border border-stone-100 rounded flex items-center justify-center p-3 grayscale hover:grayscale-0 transition-all">
-                  <img src="https://via.placeholder.com/120x60?text=LOGO+PRATA" alt="Patrocinador Prata" className="max-w-full max-h-full object-contain" />
-                </div>
-              ))}
+              <div className="h-24 sm:h-26 md:h-28 bg-white/50 border border-dashed border-stone-300 rounded-lg flex items-center justify-center p-3 sm:p-4">
+                <span className="text-stone-300 text-[10px] md:text-xs font-display font-bold uppercase tracking-wider text-center">Espaço reservado</span>
+              </div>
             </div>
           </div>
 

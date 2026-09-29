@@ -719,8 +719,8 @@ function Index() {
             <div className="grid grid-cols-1 md:grid-cols-2 gap-12 max-w-5xl mx-auto">
               <div className="flex flex-col items-center">
                 <h3 className="text-king-dark font-display font-bold text-sm md:text-base mb-6 uppercase tracking-wider">Realização</h3>
-                <div className="w-32 h-24 md:w-40 md:h-28 bg-white shadow-sm rounded-xl flex items-center justify-center p-4 transform hover:scale-105 transition-transform duration-300 ring-1 ring-stone-100">
-                  <img src="https://via.placeholder.com/200x150?text=PAROQUIA+CRISTO+REI" alt="Realização Paróquia Cristo Rei" className="max-w-full max-h-full object-contain" />
+                <div className="w-full max-w-[400px] h-28 md:h-36 bg-white shadow-md shadow-stone-200/70 ring-1 ring-stone-100 rounded-xl flex items-center justify-center p-4 md:p-6 transform hover:scale-105 transition-all duration-300">
+                  <img src={cristoReiAsset.url} alt="Realização Paróquia Cristo Rei" className="max-w-full max-h-full w-auto h-auto object-contain" />
                 </div>
               </div>
               <div className="flex flex-col items-center">

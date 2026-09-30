@@ -8,3 +8,5 @@
 > Commits you push to the connected branch sync back to Lovable and show up in
 > the editor, so keep the branch in a working state.
 <!-- LOVABLE:END -->
+
+- Sponsor grids use a responsive 4/6-column span pattern so incomplete final rows stay centered; this preserves symmetry as sponsors are added.

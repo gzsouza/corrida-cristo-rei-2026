@@ -29,10 +29,30 @@ import samahaAsset from "@/assets/logo-samaha.png.asset.json";
 import valgroupAsset from "@/assets/logo-valgroup.png.asset.json";
 import varejaoAsset from "@/assets/logo-varejao-tintas.png.asset.json";
 import ibisAsset from "@/assets/logo-ibis.png.asset.json";
+import alineCristinaAsset from "@/assets/logo-aline-cristina-pilates.png.asset.json";
 
 export const Route = createFileRoute("/")({
+  head: () => ({
+    meta: [
+      { title: "5ª Corrida de Cristo Rei - Lorena 2026" },
+      {
+        name: "description",
+        content: "Participe da 5ª Corrida de Cristo Rei em Lorena-SP no dia 29/11/2026, com provas de 10K, 5K, 3K e Kids.",
+      },
+      { property: "og:title", content: "5ª Corrida de Cristo Rei - Lorena 2026" },
+      {
+        property: "og:description",
+        content: "Corrida beneficente em Lorena-SP, unindo fé, esporte e solidariedade em prol da Paróquia Cristo Rei.",
+      },
+      { property: "og:type", content: "website" },
+      { name: "twitter:card", content: "summary_large_image" },
+    ],
+  }),
   component: Index,
 });
+
+const centeredSponsorGrid =
+  "grid grid-cols-4 sm:grid-cols-6 [&>*]:col-span-2 [&>*:last-child:nth-child(odd)]:col-start-2 sm:[&>*:last-child:nth-child(odd)]:col-start-auto sm:[&>*:nth-last-child(2):nth-child(3n+1)]:col-start-2";
 
 type PlanId = "promo" | "kids";
 
@@ -662,7 +682,7 @@ function Index() {
           {/* Diamante */}
           <div className="mb-16">
             <h3 className="text-cyan-600 font-display font-bold text-lg md:text-xl mb-6 uppercase tracking-wider">Patrocínio Diamante</h3>
-            <div className="grid grid-cols-2 sm:grid-cols-3 gap-4 md:gap-6 max-w-4xl mx-auto">
+            <div className={`${centeredSponsorGrid} gap-4 md:gap-6 max-w-4xl mx-auto`}>
               {[
                 { src: zaninAsset.url, alt: "Patrocinador Diamante - Zanin Motors" },
                 { src: planoMutuoAsset.url, alt: "Patrocinador Diamante - Plano Mútuo MEDC Funerária Central" },
@@ -697,7 +717,7 @@ function Index() {
           {/* Prata */}
           <div className="mb-12">
             <h3 className="text-stone-400 font-display font-bold text-base md:text-lg mb-6 uppercase tracking-wider">Patrocínio Prata</h3>
-            <div className="grid grid-cols-2 sm:grid-cols-3 gap-3 sm:gap-4 max-w-3xl mx-auto">
+            <div className={`${centeredSponsorGrid} gap-3 sm:gap-4 max-w-3xl mx-auto`}>
               {[
                 { src: objetivoLogo, alt: "Patrocinador Prata - Objetivo Lorena", imgClass: "max-w-[92%] max-h-[58%]" },
                 { src: marcelaAsset.url, alt: "Patrocinador Prata - Marcela Ambientes Planejados", imgClass: "max-w-[92%] max-h-[62%]" },
@@ -709,14 +729,12 @@ function Index() {
                 { src: samahaAsset.url, alt: "Patrocinador Prata - Samaha Store", imgClass: "max-w-[90%] max-h-[64%]" },
                 { src: reinoPetAsset.url, alt: "Patrocinador Prata - Reino Pet", imgClass: "max-w-[88%] max-h-[62%]" },
                 { src: ibisAsset.url, alt: "Patrocinador Prata - Ibis Budget", imgClass: "max-w-[78%] max-h-[84%]" },
+                { src: alineCristinaAsset.url, alt: "Patrocinador Prata - Aline Cristina Pilates", imgClass: "max-w-[88%] max-h-[88%]" },
               ].map((logo) => (
                 <div key={logo.alt} className="h-24 sm:h-26 md:h-28 bg-white shadow-sm shadow-stone-200/70 ring-1 ring-stone-100 rounded-lg flex items-center justify-center p-3 sm:p-4 transition-transform duration-300 hover:scale-[1.03]">
                   <img src={logo.src} alt={logo.alt} className={`${logo.imgClass} w-auto h-auto object-contain`} />
                 </div>
               ))}
-              <div className="h-24 sm:h-26 md:h-28 bg-white/50 border border-dashed border-stone-300 rounded-lg flex items-center justify-center p-3 sm:p-4">
-                <span className="text-stone-300 text-[10px] md:text-xs font-display font-bold uppercase tracking-wider text-center">Espaço reservado</span>
-              </div>
             </div>
           </div>
 

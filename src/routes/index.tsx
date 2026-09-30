@@ -11,31 +11,31 @@ declare global {
     dataLayer: Record<string, unknown>[];
   }
 }
-import logoAsset from "@/assets/logo-corrida-cristo-rei-2026.png.asset.json";
-import regulamentoAsset from "@/assets/regulamento-corrida-cristo-rei-2026.pdf.asset.json";
-import igrejaAsset from "@/assets/igreja-comunidade-lorena.jpg.asset.json";
-import kidocuraAsset from "@/assets/logo-kidocura.png.asset.json";
-import dbnetAsset from "@/assets/logo-dbnet.png.asset.json";
-import zaninAsset from "@/assets/logo-zanin-motors.png.asset.json";
-import siSerralheriaAsset from "@/assets/logo-si-serralheria.png.asset.json";
-import ninniAsset from "@/assets/logo-ninni-sushi-bar.png.asset.json";
-import planoMutuoAsset from "@/assets/logo-plano-mutuo-medc.png.asset.json";
-import cristoReiAsset from "@/assets/logo-cristo-rei.png.asset.json";
-import objetivoLogo from "@/assets/logo-objetivo-lorena-transparente.png";
-import cleofasAsset from "@/assets/logo-editora-cleofas.png.asset.json";
-import evelynAsset from "@/assets/logo-evelyn-moda-fitness.png.asset.json";
-import padariaPrincesaAsset from "@/assets/logo-padaria-princesa.png.asset.json";
-import vilaPastelAsset from "@/assets/logo-vila-pastel.jpeg.asset.json";
-import trevoShoppingLogo from "@/assets/logo-trevo-shopping-ouro.png";
-import pinhalAsset from "@/assets/logo-madereira-pinhal.png.asset.json";
-import maniaLimpezaAsset from "@/assets/logo-mania-de-limpeza.png.asset.json";
-import marcelaAsset from "@/assets/logo-marcela-ambientes.png.asset.json";
-import reinoPetAsset from "@/assets/logo-reino-pet.png.asset.json";
-import samahaAsset from "@/assets/logo-samaha.png.asset.json";
-import valgroupAsset from "@/assets/logo-valgroup.png.asset.json";
-import varejaoAsset from "@/assets/logo-varejao-tintas.png.asset.json";
-import ibisAsset from "@/assets/logo-ibis.png.asset.json";
-import alineCristinaAsset from "@/assets/logo-aline-cristina-pilates.png.asset.json";
+const logoAsset = { url: "/images/logo-corrida-cristo-rei-2026.png" };
+const regulamentoAsset = { url: "/docs/regulamento-corrida-cristo-rei-2026.pdf" };
+const igrejaAsset = { url: "/images/igreja-comunidade-lorena.jpg" };
+const kidocuraAsset = { url: "/images/logo-kidocura.png" };
+const dbnetAsset = { url: "/images/logo-dbnet.png" };
+const zaninAsset = { url: "/images/logo-zanin-motors.png" };
+const siSerralheriaAsset = { url: "/images/logo-si-serralheria.png" };
+const ninniAsset = { url: "/images/logo-ninni-sushi-bar.png" };
+const planoMutuoAsset = { url: "/images/logo-plano-mutuo-medc.png" };
+const cristoReiAsset = { url: "/images/logo-cristo-rei.png" };
+const objetivoLogo = "/images/logo-objetivo-lorena-transparente.png";
+const cleofasAsset = { url: "/images/logo-editora-cleofas.png" };
+const evelynAsset = { url: "/images/logo-evelyn-moda-fitness.png" };
+const padariaPrincesaAsset = { url: "/images/logo-padaria-princesa.png" };
+const vilaPastelAsset = { url: "/images/logo-vila-pastel.jpeg" };
+const trevoShoppingLogo = "/images/logo-trevo-shopping-ouro.png";
+const pinhalAsset = { url: "/images/logo-madereira-pinhal.png" };
+const maniaLimpezaAsset = { url: "/images/logo-mania-de-limpeza.png" };
+const marcelaAsset = { url: "/images/logo-marcela-ambientes.png" };
+const reinoPetAsset = { url: "/images/logo-reino-pet.png" };
+const samahaAsset = { url: "/images/logo-samaha.png" };
+const valgroupAsset = { url: "/images/logo-valgroup.png" };
+const varejaoAsset = { url: "/images/logo-varejao-tintas.png" };
+const ibisAsset = { url: "/images/logo-ibis.png" };
+const alineCristinaAsset = { url: "/images/logo-aline-cristina-pilates.png" };
 
 export const Route = createFileRoute("/")({
   head: () => ({

@@ -811,9 +811,6 @@ function Index() {
       <footer id="contato" className="bg-king-dark text-stone-400 py-12 border-t border-white/5">
         <div className="container mx-auto px-6 grid grid-cols-1 md:grid-cols-3 gap-8 text-center md:text-left">
           <div>
-            <div className="flex items-center justify-center md:justify-start gap-3 mb-4">
-              <img src="https://via.placeholder.com/40x40/D4AF37/1f0508?text=CR" alt="Logo Paróquia Cristo Rei" className="h-10 w-auto object-contain" />
-            </div>
             <p className="text-sm">Evento oficial da Paróquia Cristo Rei de Lorena-SP. Unindo fé e esporte em prol da comunidade.</p>
           </div>
           <div>
@@ -831,17 +828,24 @@ function Index() {
                 </a>
               </li>
               <li><a href="#" className="hover:text-king-gold transition-colors">Retirada de Kits</a></li>
-              <li><a href="#" className="hover:text-king-gold transition-colors">Resultados (2025)</a></li>
             </ul>
           </div>
           <div>
             <h4 className="text-white font-bold mb-4">Contato</h4>
             <ul className="space-y-2 text-sm">
-              <li><i className="fa-solid fa-envelope mr-2" /> contato@corridacristoreilorena.com.br</li>
-              <li><i className="fa-brands fa-whatsapp mr-2" /> (12) 98810-4574</li>
+              <li>
+                <a
+                  href="https://wa.me/5512997723895?text=Ol%C3%A1!%20Vim%20do%20site%20e%20gostaria%20de%20mais%20informa%C3%A7%C3%B5es"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  onClick={openInNewTab}
+                  className="flex items-center justify-center md:justify-start hover:text-king-gold transition-colors"
+                >
+                  <i className="fa-brands fa-whatsapp mr-2" /> (12) 99772-3895
+                </a>
+              </li>
               <li className="flex justify-center md:justify-start gap-4 mt-4">
                 <a href="#" className="w-10 h-10 rounded-full bg-white/5 flex items-center justify-center hover:bg-king-red hover:text-white transition-colors"><i className="fa-brands fa-instagram text-lg" /></a>
-                <a href="#" className="w-10 h-10 rounded-full bg-white/5 flex items-center justify-center hover:bg-blue-600 hover:text-white transition-colors"><i className="fa-brands fa-facebook-f text-lg" /></a>
               </li>
             </ul>
           </div>

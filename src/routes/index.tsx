@@ -728,8 +728,8 @@ function Index() {
                 { src: maniaLimpezaAsset.url, alt: "Patrocinador Prata - Mania de Limpeza", imgClass: "max-w-[80%] max-h-[88%]" },
                 { src: samahaAsset.url, alt: "Patrocinador Prata - Samaha Store", imgClass: "max-w-[90%] max-h-[64%]" },
                 { src: reinoPetAsset.url, alt: "Patrocinador Prata - Reino Pet", imgClass: "max-w-[88%] max-h-[62%]" },
-                { src: ibisAsset.url, alt: "Patrocinador Prata - Ibis Budget", imgClass: "max-w-[90%] max-h-[96%]" },
-                { src: alineCristinaAsset.url, alt: "Patrocinador Prata - Aline Cristina Pilates", imgClass: "max-w-[98%] max-h-[98%]" },
+                { src: ibisAsset.url, alt: "Patrocinador Prata - Ibis Budget", imgClass: "max-w-[78%] max-h-[84%] scale-[1.15]" },
+                { src: alineCristinaAsset.url, alt: "Patrocinador Prata - Aline Cristina Pilates", imgClass: "max-w-[88%] max-h-[88%] scale-[1.15]" },
               ].map((logo) => (
                 <div key={logo.alt} className="h-24 sm:h-26 md:h-28 bg-white shadow-sm shadow-stone-200/70 ring-1 ring-stone-100 rounded-lg flex items-center justify-center p-3 sm:p-4 transition-transform duration-300 hover:scale-[1.03]">
                   <img src={logo.src} alt={logo.alt} className={`${logo.imgClass} w-auto h-auto object-contain`} />

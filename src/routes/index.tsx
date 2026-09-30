@@ -1,5 +1,10 @@
 import { createFileRoute } from "@tanstack/react-router";
-import { useEffect, useState, type FormEvent } from "react";
+import {
+  useEffect,
+  useState,
+  type FormEvent,
+  type MouseEvent as ReactMouseEvent,
+} from "react";
 
 declare global {
   interface Window {
@@ -7,6 +12,7 @@ declare global {
   }
 }
 import logoAsset from "@/assets/logo-corrida-cristo-rei-2026.png.asset.json";
+import regulamentoAsset from "@/assets/regulamento-corrida-cristo-rei-2026.pdf.asset.json";
 import igrejaAsset from "@/assets/igreja-comunidade-lorena.jpg.asset.json";
 import kidocuraAsset from "@/assets/logo-kidocura.png.asset.json";
 import dbnetAsset from "@/assets/logo-dbnet.png.asset.json";
@@ -51,8 +57,19 @@ export const Route = createFileRoute("/")({
   component: Index,
 });
 
-// Define se a seção "Inscrições" (e os botões que apontam para ela) aparece em qualquer dispositivo.
+// Define se a seção interna "Inscrições" (formulário do site) aparece em qualquer dispositivo.
 const SHOW_INSCRICOES = false;
+
+// As inscrições oficiais acontecem na plataforma Portal das Corridas.
+const INSCRICAO_URL =
+  "https://www.portaldascorridas.com.br/event-details/5-corrida-de-rua-e-caminhada-de-cristo-rei";
+
+// Abre o link numa nova aba: a visualização do Lovable bloqueia a navegação
+// feita no mesmo quadro, então a aba é aberta direto pelo navegador.
+function openInNewTab(event: ReactMouseEvent<HTMLAnchorElement>) {
+  event.preventDefault();
+  window.open(event.currentTarget.href, "_blank", "noopener,noreferrer");
+}
 
 const centeredSponsorGrid =
   "grid grid-cols-4 sm:grid-cols-6 [&>*]:col-span-2 [&>*:last-child:nth-child(odd)]:col-start-2 sm:[&>*:last-child:nth-child(odd)]:col-start-auto sm:[&>*:nth-last-child(2):nth-child(3n+1)]:col-start-2";
@@ -180,14 +197,15 @@ function Index() {
             <a href="#causa" className="hover:text-king-gold transition-colors">Nossa Causa</a>
             <a href="#sobre" className="hover:text-king-gold transition-colors">A Prova</a>
             <a href="#modalidades" className="hover:text-king-gold transition-colors">Modalidades</a>
-            {SHOW_INSCRICOES && (
-              <a
-                href="#inscricao"
-                className="bg-king-gold text-king-dark px-5 py-2 rounded-full font-bold hover:bg-yellow-400 transition-all transform hover:-translate-y-1 shadow-lg shadow-yellow-500/20 whitespace-nowrap"
-              >
-                Inscreva-se
-              </a>
-            )}
+            <a
+              href={INSCRICAO_URL}
+              target="_blank"
+              rel="noopener noreferrer"
+              onClick={openInNewTab}
+              className="bg-king-gold text-king-dark px-5 py-2 rounded-full font-bold hover:bg-yellow-400 transition-all transform hover:-translate-y-1 shadow-lg shadow-yellow-500/20 whitespace-nowrap"
+            >
+              Inscreva-se
+            </a>
             <a
               href="#patrocinador"
               className="border border-king-gold text-king-gold px-5 py-2 rounded-full font-bold hover:bg-king-gold hover:text-king-dark transition-all whitespace-nowrap"
@@ -214,15 +232,18 @@ function Index() {
             <a href="#causa" className="hover:text-king-gold py-2 border-b border-white/10" onClick={closeMenu}>Nossa Causa</a>
             <a href="#sobre" className="hover:text-king-gold py-2 border-b border-white/10" onClick={closeMenu}>A Prova</a>
             <a href="#modalidades" className="hover:text-king-gold py-2 border-b border-white/10" onClick={closeMenu}>Modalidades</a>
-            {SHOW_INSCRICOES && (
-              <a
-                href="#inscricao"
-                className="bg-king-gold text-king-dark font-bold py-3 rounded-full hover:bg-yellow-400 transition-colors shadow-lg mt-4"
-                onClick={closeMenu}
-              >
-                Realizar Inscrição
-              </a>
-            )}
+            <a
+              href={INSCRICAO_URL}
+              target="_blank"
+              rel="noopener noreferrer"
+              className="bg-king-gold text-king-dark font-bold py-3 rounded-full hover:bg-yellow-400 transition-colors shadow-lg mt-4"
+              onClick={(event) => {
+                closeMenu();
+                openInNewTab(event);
+              }}
+            >
+              Realizar Inscrição
+            </a>
             <a
               href="#patrocinador"
               className="border border-king-gold text-king-gold py-3 rounded-full font-bold hover:bg-king-gold hover:text-king-dark transition-colors"
@@ -267,15 +288,16 @@ function Index() {
             ))}
           </div>
 
-          {SHOW_INSCRICOES && (
-            <a
-              href="#inscricao"
-              className="inline-block bg-king-gold text-king-dark text-base md:text-lg font-bold px-8 py-4 rounded-full hover:bg-white hover:text-king-red transition-all transform hover:scale-105 shadow-xl animate-fade-up w-full sm:w-auto max-w-xs"
-              style={{ animationDelay: "0.8s" }}
-            >
-              GARANTIR MINHA VAGA
-            </a>
-          )}
+          <a
+            href={INSCRICAO_URL}
+            target="_blank"
+            rel="noopener noreferrer"
+            onClick={openInNewTab}
+            className="inline-block bg-king-gold text-king-dark text-base md:text-lg font-bold px-8 py-4 rounded-full hover:bg-white hover:text-king-red transition-all transform hover:scale-105 shadow-xl animate-fade-up w-full sm:w-auto max-w-xs"
+            style={{ animationDelay: "0.8s" }}
+          >
+            GARANTIR MINHA VAGA
+          </a>
 
           <p className="mt-6 text-xs md:text-sm opacity-80 animate-fade-up flex flex-col sm:flex-row items-center justify-center gap-2" style={{ animationDelay: "1s" }}>
             <span><i className="fa-solid fa-calendar-day mr-2" /> 29 de Novembro de 2026</span>
@@ -797,7 +819,17 @@ function Index() {
           <div>
             <h4 className="text-white font-bold mb-4">Links Rápidos</h4>
             <ul className="space-y-2 text-sm">
-              <li><a href="#" className="hover:text-king-gold transition-colors">Regulamento</a></li>
+              <li>
+                <a
+                  href={regulamentoAsset.url}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  onClick={openInNewTab}
+                  className="hover:text-king-gold transition-colors"
+                >
+                  Regulamento
+                </a>
+              </li>
               <li><a href="#" className="hover:text-king-gold transition-colors">Retirada de Kits</a></li>
               <li><a href="#" className="hover:text-king-gold transition-colors">Resultados (2025)</a></li>
             </ul>

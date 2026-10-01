@@ -1,6 +1,7 @@
 import { createFileRoute } from "@tanstack/react-router";
 import {
   useEffect,
+  useRef,
   useState,
   type FormEvent,
   type MouseEvent as ReactMouseEvent,
@@ -86,6 +87,7 @@ function Index() {
   const [modal, setModal] = useState<{ name: string; price: string } | null>(null);
   const [scrolled, setScrolled] = useState(false);
   const [showFab, setShowFab] = useState(false);
+  const fabRef = useRef<HTMLAnchorElement>(null);
   const [partner, setPartner] = useState({ empresa: "", responsavel: "", telefone: "", email: "" });
 
   const pushDataLayer = (data: Record<string, unknown>) => {
@@ -136,16 +138,34 @@ function Index() {
     return () => window.clearInterval(id);
   }, []);
 
-  // O botão flutuante de inscrição só aparece depois de ~300px de rolagem,
-  // quando o botão da barra superior já saiu do campo de visão.
+  // O botão flutuante aparece depois de ~300px e se oculta quando sua área
+  // alcança conteúdos importantes marcados com data-fab-avoid.
   useEffect(() => {
-    const onScroll = () => {
+    const updateFabVisibility = () => {
       setScrolled(window.scrollY > 50);
-      setShowFab(window.scrollY > 300);
+      const fab = fabRef.current;
+      const fabRect = fab?.getBoundingClientRect();
+      const overlapsProtectedContent = fabRect
+        ? Array.from(document.querySelectorAll<HTMLElement>("[data-fab-avoid]")).some((element) => {
+            const elementRect = element.getBoundingClientRect();
+            return !(
+              fabRect.right <= elementRect.left ||
+              fabRect.left >= elementRect.right ||
+              fabRect.bottom <= elementRect.top ||
+              fabRect.top >= elementRect.bottom
+            );
+          })
+        : false;
+
+      setShowFab(window.scrollY > 300 && !overlapsProtectedContent);
     };
-    onScroll();
-    window.addEventListener("scroll", onScroll, { passive: true });
-    return () => window.removeEventListener("scroll", onScroll);
+    updateFabVisibility();
+    window.addEventListener("scroll", updateFabVisibility, { passive: true });
+    window.addEventListener("resize", updateFabVisibility);
+    return () => {
+      window.removeEventListener("scroll", updateFabVisibility);
+      window.removeEventListener("resize", updateFabVisibility);
+    };
   }, []);
 
   useEffect(() => {
@@ -346,7 +366,7 @@ function Index() {
             />
             <div className="absolute -bottom-4 -right-4 w-24 h-24 md:w-32 md:h-32 bg-king-red rounded-full opacity-20" />
           </div>
-          <div className="md:w-1/2 text-center md:text-left">
+          <div className="md:w-1/2 text-center md:text-left" data-fab-avoid>
             <h4 className="text-king-gold font-bold uppercase tracking-wider mb-2 text-sm md:text-base">Solidariedade e Fé</h4>
             <h2 className="text-3xl md:text-4xl font-display font-bold text-king-dark mb-6 leading-tight">
               Correndo por um Propósito Maior
@@ -408,7 +428,11 @@ function Index() {
               time: "Largada: 07:00h", note: "",
             },
           ].map((m) => (
-            <div key={m.title} className={`bg-white rounded-2xl shadow-lg overflow-hidden group hover:shadow-2xl transition-all border-b-4 ${m.border} flex flex-col`}>
+            <div
+              key={m.title}
+              data-fab-avoid={m.title === "10 KM" ? "" : undefined}
+              className={`bg-white rounded-2xl shadow-lg overflow-hidden group hover:shadow-2xl transition-all border-b-4 ${m.border} flex flex-col`}
+            >
               <div className={`${m.headerBg} p-6 min-h-[104px] md:min-h-[124px] flex items-center justify-center text-center ${m.headerText} relative overflow-hidden`}>
                 <i className={`fa-solid ${m.icon} absolute -right-4 -top-4 text-7xl md:text-8xl ${m.iconTint} group-hover:scale-110 transition-transform`} />
                 <h3 className="relative text-2xl md:text-3xl font-display font-bold">{m.title}</h3>
@@ -859,6 +883,7 @@ function Index() {
 
       {/* Botão flutuante de inscrição: somente em desktop (hidden em celular e tablet) */}
       <a
+        ref={fabRef}
         href={INSCRICAO_URL}
         target="_blank"
         rel="noopener noreferrer"

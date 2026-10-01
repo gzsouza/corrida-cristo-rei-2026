@@ -85,6 +85,7 @@ function Index() {
   const [modalidade, setModalidade] = useState("");
   const [modal, setModal] = useState<{ name: string; price: string } | null>(null);
   const [scrolled, setScrolled] = useState(false);
+  const [showFab, setShowFab] = useState(false);
   const [partner, setPartner] = useState({ empresa: "", responsavel: "", telefone: "", email: "" });
 
   const pushDataLayer = (data: Record<string, unknown>) => {
@@ -135,9 +136,15 @@ function Index() {
     return () => window.clearInterval(id);
   }, []);
 
+  // O botão flutuante de inscrição só aparece depois de ~300px de rolagem,
+  // quando o botão da barra superior já saiu do campo de visão.
   useEffect(() => {
-    const onScroll = () => setScrolled(window.scrollY > 50);
-    window.addEventListener("scroll", onScroll);
+    const onScroll = () => {
+      setScrolled(window.scrollY > 50);
+      setShowFab(window.scrollY > 300);
+    };
+    onScroll();
+    window.addEventListener("scroll", onScroll, { passive: true });
     return () => window.removeEventListener("scroll", onScroll);
   }, []);
 
@@ -852,6 +859,20 @@ function Index() {
           &copy; 2026 5ª Corrida de Cristo Rei. Todos os direitos reservados.
         </div>
       </footer>
+
+      {/* Botão flutuante de inscrição: somente em desktop (hidden em celular e tablet) */}
+      <a
+        href={INSCRICAO_URL}
+        target="_blank"
+        rel="noopener noreferrer"
+        onClick={openInNewTab}
+        className={`hidden lg:inline-flex fixed bottom-6 right-6 z-50 items-center gap-3 rounded-full bg-king-gold px-7 py-4 text-sm xl:text-base font-bold uppercase tracking-wide text-king-dark shadow-xl shadow-yellow-600/30 ring-1 ring-king-gold/50 transition-all duration-300 hover:-translate-y-1 hover:bg-yellow-400 hover:shadow-2xl hover:shadow-yellow-500/50 focus:outline-none focus-visible:ring-2 focus-visible:ring-king-dark ${
+          showFab ? "translate-y-0 opacity-100" : "pointer-events-none translate-y-6 opacity-0"
+        }`}
+      >
+        <i className="fa-solid fa-ticket text-lg" aria-hidden="true" />
+        Compre seu ingresso
+      </a>
 
       {/* Modal */}
       {modal && (

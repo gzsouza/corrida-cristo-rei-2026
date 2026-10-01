@@ -36,6 +36,7 @@ const valgroupAsset = { url: "/images/logo-valgroup.png" };
 const varejaoAsset = { url: "/images/logo-varejao-tintas.png" };
 const ibisAsset = { url: "/images/logo-ibis.png" };
 const alineCristinaAsset = { url: "/images/logo-aline-cristina-pilates.png" };
+const coimbraAsset = { url: "/images/logo-coimbra.png" };
 
 export const Route = createFileRoute("/")({
   head: () => ({
@@ -791,12 +792,12 @@ function Index() {
               </div>
               <div className="flex flex-col items-center">
                 <h3 className="text-stone-500 font-display font-bold text-sm md:text-base mb-6 uppercase tracking-wider">Apoio Institucional</h3>
-                <div className="flex flex-wrap md:flex-nowrap justify-center items-center gap-3">
-                  {[1, 2, 3].map((n) => (
-                    <div key={n} className="w-28 h-20 md:w-28 md:h-24 bg-transparent border border-stone-200 rounded-lg flex items-center justify-center p-2 hover:bg-white transition-all">
-                      <img src={`https://via.placeholder.com/150x100?text=APOIO+${n}`} alt="Apoio Institucional" className="max-w-full max-h-full object-contain mix-blend-multiply" />
-                    </div>
-                  ))}
+                <div className="w-full max-w-[400px] h-28 md:h-36 bg-white shadow-md shadow-stone-200/70 ring-1 ring-stone-100 rounded-xl flex items-center justify-center p-4 md:p-6 transform hover:scale-105 transition-all duration-300">
+                  <img
+                    src={coimbraAsset.url}
+                    alt="Coimbra - Apoio Institucional"
+                    className="max-w-[88%] max-h-[88%] w-auto h-auto object-contain"
+                  />
                 </div>
               </div>
             </div>

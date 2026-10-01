@@ -849,9 +849,6 @@ function Index() {
                   <i className="fa-brands fa-whatsapp mr-2" /> (12) 99772-3895
                 </a>
               </li>
-              <li className="flex justify-center md:justify-start gap-4 mt-4">
-                <a href="#" className="w-10 h-10 rounded-full bg-white/5 flex items-center justify-center hover:bg-king-red hover:text-white transition-colors"><i className="fa-brands fa-instagram text-lg" /></a>
-              </li>
             </ul>
           </div>
         </div>
@@ -871,7 +868,7 @@ function Index() {
         }`}
       >
         <i className="fa-solid fa-ticket text-lg" aria-hidden="true" />
-        Compre seu ingresso
+        Inscreva-se
       </a>
 
       {/* Modal */}

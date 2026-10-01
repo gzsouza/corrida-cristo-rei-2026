@@ -796,7 +796,7 @@ function Index() {
                   <img
                     src={coimbraAsset.url}
                     alt="Coimbra - Apoio Institucional"
-                    className="max-w-[88%] max-h-[88%] w-auto h-auto object-contain"
+                    className="max-w-[88%] max-h-[88%] w-auto h-auto object-contain scale-[0.8]"
                   />
                 </div>
               </div>

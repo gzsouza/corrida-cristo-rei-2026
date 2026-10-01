@@ -144,7 +144,14 @@ function Index() {
     const updateFabVisibility = () => {
       setScrolled(window.scrollY > 50);
       const fab = fabRef.current;
-      const fabRect = fab?.getBoundingClientRect();
+      const fabRect = fab
+        ? {
+            left: window.innerWidth - 24 - fab.offsetWidth,
+            right: window.innerWidth - 24,
+            top: window.innerHeight - 24 - fab.offsetHeight,
+            bottom: window.innerHeight - 24,
+          }
+        : null;
       const overlapsProtectedContent = fabRect
         ? Array.from(document.querySelectorAll<HTMLElement>("[data-fab-avoid]")).some((element) => {
             const elementRect = element.getBoundingClientRect();

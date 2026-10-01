@@ -792,11 +792,11 @@ function Index() {
               </div>
               <div className="flex flex-col items-center">
                 <h3 className="text-stone-500 font-display font-bold text-sm md:text-base mb-6 uppercase tracking-wider">Apoio Institucional</h3>
-                <div className="w-full max-w-[400px] h-28 md:h-36 bg-white shadow-md shadow-stone-200/70 ring-1 ring-stone-100 rounded-xl flex items-center justify-center p-4 md:p-5 transform hover:scale-105 transition-all duration-300">
+                <div className="w-full max-w-[400px] h-28 md:h-36 bg-white shadow-md shadow-stone-200/70 ring-1 ring-stone-100 rounded-xl flex items-center justify-center p-4 md:p-6 transform hover:scale-105 transition-all duration-300">
                   <img
                     src={coimbraAsset.url}
                     alt="Coimbra - Apoio Institucional"
-                    className="max-w-full max-h-full w-auto h-auto object-contain scale-[1.1]"
+                    className="max-w-full max-h-full w-auto h-auto object-contain"
                   />
                 </div>
               </div>

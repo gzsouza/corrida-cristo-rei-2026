@@ -71,6 +71,11 @@ const KITS_MAP_EMBED_URL =
   "https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3679.978340163433!2d-45.11431632390788!3d-22.729046431544493!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x94ccc91fcebc2237%3A0x33a0b0c2ae97c170!2sPar%C3%B3quia%20Cristo%20Rei!5e0!3m2!1spt-BR!2sbr!4v1790900240776!5m2!1spt-BR!2sbr";
 const KITS_COMO_CHEGAR_URL = "https://maps.app.goo.gl/FdqtE5Xp1ZKS8vtE7";
 
+// Kit do atleta (imagem em public/images) e redes sociais da corrida.
+const kitAsset = { url: "/images/kit-corrida-cristo-rei-2026.png" };
+const INSTAGRAM_EMBED_URL = "https://www.instagram.com/corridacristorei/embed";
+const INSTAGRAM_PROFILE_URL = "https://www.instagram.com/corridacristorei/";
+
 // Abre o link numa nova aba: a visualização do Lovable bloqueia a navegação
 // feita no mesmo quadro, então a aba é aberta direto pelo navegador.
 function openInNewTab(event: ReactMouseEvent<HTMLAnchorElement>) {
@@ -527,6 +532,81 @@ function Index() {
                 allowFullScreen
                 referrerPolicy="strict-origin-when-cross-origin"
               />
+            </div>
+          </div>
+        </div>
+      </section>
+
+      {/* Kit do Atleta + Redes Sociais */}
+      <section id="kit-atleta" className="py-16 md:py-24">
+        <div className="container mx-auto px-4 sm:px-6">
+          <div className="text-center mb-10 md:mb-14">
+            <span className="block text-king-gold font-display font-bold uppercase tracking-[0.25em] text-xs md:text-sm mb-3">
+              Kit do Atleta
+            </span>
+            <h2 className="text-king-red font-display text-3xl md:text-4xl font-bold uppercase">
+              Seu Kit e Nossa Comunidade
+            </h2>
+            <div className="w-20 md:w-24 h-1 bg-king-gold mx-auto rounded mt-4" />
+          </div>
+
+          <div className="grid grid-cols-1 lg:grid-cols-2 gap-6 lg:gap-8 items-stretch max-w-6xl mx-auto">
+            {/* Frame esquerdo: Instagram */}
+            <div className="bg-white rounded-2xl p-6 md:p-8 shadow-xl ring-1 ring-stone-200 flex flex-col">
+              <h3 className="text-king-dark font-display text-xl md:text-2xl font-bold uppercase mb-5">
+                <i className="fa-brands fa-instagram text-king-red mr-2" />
+                Acompanhe nossas redes sociais
+              </h3>
+              <div className="flex-grow rounded-xl overflow-hidden ring-1 ring-stone-200 bg-white">
+                <iframe
+                  title="Instagram da 5ª Corrida de Cristo Rei"
+                  src={INSTAGRAM_EMBED_URL}
+                  className="w-full h-full min-h-[380px] lg:min-h-[420px] border-0"
+                  loading="lazy"
+                  referrerPolicy="strict-origin-when-cross-origin"
+                />
+              </div>
+              <div className="mt-6 flex justify-center">
+                <a
+                  href={INSTAGRAM_PROFILE_URL}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  onClick={openInNewTab}
+                  className="inline-flex items-center gap-2 rounded-full bg-king-gold px-6 py-2.5 text-sm font-bold uppercase tracking-wide text-king-dark shadow-lg shadow-yellow-600/30 transition-all duration-300 hover:-translate-y-0.5 hover:bg-yellow-400"
+                >
+                  <i className="fa-brands fa-instagram" />
+                  Seguir @corridacristorei
+                </a>
+              </div>
+            </div>
+
+            {/* Frame direito: Kit do atleta */}
+            <div className="bg-white rounded-2xl p-6 md:p-8 shadow-xl ring-1 ring-stone-200 flex flex-col">
+              <h3 className="text-king-dark font-display text-xl md:text-2xl font-bold uppercase mb-5">
+                <i className="fa-solid fa-shirt text-king-gold mr-2" />
+                Kit do Atleta
+              </h3>
+              <div className="flex-grow rounded-xl overflow-hidden ring-1 ring-stone-200 bg-stone-50 flex items-center justify-center">
+                <img
+                  src={kitAsset.url}
+                  alt="Kit do atleta: camiseta oficial da corrida, medalha e número de peito"
+                  className="w-full h-full min-h-[300px] lg:min-h-[380px] object-cover"
+                />
+              </div>
+              <ul className="mt-6 grid grid-cols-1 sm:grid-cols-3 gap-3 text-sm font-medium text-king-dark">
+                <li className="flex items-center justify-center gap-2 rounded-lg bg-stone-50 ring-1 ring-stone-200 px-3 py-2">
+                  <i className="fa-solid fa-shirt text-king-red" />
+                  Camiseta Oficial
+                </li>
+                <li className="flex items-center justify-center gap-2 rounded-lg bg-stone-50 ring-1 ring-stone-200 px-3 py-2">
+                  <i className="fa-solid fa-medal text-king-red" />
+                  Medalha
+                </li>
+                <li className="flex items-center justify-center gap-2 rounded-lg bg-stone-50 ring-1 ring-stone-200 px-3 py-2">
+                  <i className="fa-solid fa-hashtag text-king-red" />
+                  Número de Peito
+                </li>
+              </ul>
             </div>
           </div>
         </div>

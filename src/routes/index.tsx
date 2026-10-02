@@ -810,10 +810,15 @@ function Index() {
           {/* Bronze */}
           <div className="mb-12">
             <h3 className="text-orange-800/60 font-display font-bold text-sm md:text-base mb-6 uppercase tracking-wider">Patrocínio Bronze</h3>
-            <div className="flex flex-wrap justify-center items-center gap-3 md:gap-4">
-              {[0, 1, 2, 3, 4].map((i) => (
-                <div key={i} className="w-20 h-16 md:w-28 md:h-20 bg-transparent flex items-center justify-center p-2 opacity-60 hover:opacity-100 transition-all">
-                  <img src="https://via.placeholder.com/100x50?text=LOGO" alt="Bronze" className="max-w-full max-h-full object-contain mix-blend-multiply" />
+            <div className="grid grid-cols-2 sm:grid-cols-4 gap-3 md:gap-4 max-w-2xl mx-auto">
+              {Array.from({ length: 16 }, (_, i) => (
+                <div
+                  key={i}
+                  className="h-14 sm:h-16 md:h-18 bg-white/70 border border-dashed border-stone-300 rounded-lg flex items-center justify-center px-2 text-center"
+                >
+                  <span className="font-display font-semibold uppercase tracking-wide text-[10px] sm:text-xs md:text-sm text-stone-400">
+                    Espaço Disponível
+                  </span>
                 </div>
               ))}
             </div>

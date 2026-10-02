@@ -66,6 +66,11 @@ const SHOW_INSCRICOES = false;
 const INSCRICAO_URL =
   "https://www.portaldascorridas.com.br/event-details/5-corrida-de-rua-e-caminhada-de-cristo-rei";
 
+// Retirada de kits: mapa incorporado da paróquia e atalho de rotas do Google Maps.
+const KITS_MAP_EMBED_URL =
+  "https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3679.978340163433!2d-45.11431632390788!3d-22.729046431544493!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x94ccc91fcebc2237%3A0x33a0b0c2ae97c170!2sPar%C3%B3quia%20Cristo%20Rei!5e0!3m2!1spt-BR!2sbr!4v1790900240776!5m2!1spt-BR!2sbr";
+const KITS_COMO_CHEGAR_URL = "https://maps.app.goo.gl/FdqtE5Xp1ZKS8vtE7";
+
 // Abre o link numa nova aba: a visualização do Lovable bloqueia a navegação
 // feita no mesmo quadro, então a aba é aberta direto pelo navegador.
 function openInNewTab(event: ReactMouseEvent<HTMLAnchorElement>) {
@@ -454,6 +459,76 @@ function Index() {
               </div>
             </div>
           ))}
+        </div>
+      </section>
+
+      {/* Entrega de Kits */}
+      <section id="kits" className="py-16 md:py-24 bg-stone-100">
+        <div className="container mx-auto px-4 sm:px-6">
+          <div className="text-center mb-10 md:mb-14">
+            <span className="block text-king-gold font-display font-bold uppercase tracking-[0.25em] text-xs md:text-sm mb-3">
+              Retirada dos Kits
+            </span>
+            <h2 className="text-king-red font-display text-3xl md:text-4xl font-bold uppercase">Entrega de Kits</h2>
+            <div className="w-20 md:w-24 h-1 bg-king-gold mx-auto rounded mt-4" />
+          </div>
+
+          <div className="grid grid-cols-1 lg:grid-cols-2 gap-6 lg:gap-8 items-stretch max-w-6xl mx-auto">
+            {/* Informações da retirada */}
+            <div
+              data-fab-avoid
+              className="bg-king-dark text-stone-300 rounded-2xl p-6 md:p-10 shadow-xl ring-1 ring-white/5 flex flex-col"
+            >
+              <h3 className="text-white font-display text-xl md:text-2xl font-bold uppercase mb-5">
+                <i className="fa-solid fa-box-open text-king-gold mr-2" />
+                Quando e onde retirar
+              </h3>
+              <p className="text-sm md:text-base leading-relaxed">
+                A entrega dos kits acontecerá dia{" "}
+                <strong className="text-white font-bold">28/11/2026 (Sábado)</strong> das{" "}
+                <strong className="text-white font-bold">10h00 às 16h00</strong> no Salão da
+                Paróquia Cristo Rei de Lorena/SP. Para aqueles que não conseguirem retirar o kit
+                no Sábado, deverão retirar, excepcionalmente, no dia da prova (
+                <strong className="text-white font-bold">29/11/2026</strong>) das{" "}
+                <strong className="text-white font-bold">5h30 às 6h30</strong>. Não será mais
+                entregue nenhum kit após esse horário.
+              </p>
+              <p className="mt-4 text-sm md:text-base leading-relaxed">
+                Leia atentamente o regulamento da nossa corrida que está no rodapé desta página,
+                para que todas as dúvidas sejam sanadas.
+              </p>
+              <p className="mt-6 flex items-start gap-3 text-sm md:text-base text-stone-200 font-medium">
+                <i className="fa-solid fa-location-dot text-king-gold mt-1 shrink-0" />
+                <span>
+                  Paróquia de Cristo Rei, Rua Joaquim Cardoso Machado, 201 - Vila Geny, Lorena - SP
+                </span>
+              </p>
+              <div className="mt-auto pt-8">
+                <a
+                  href={KITS_COMO_CHEGAR_URL}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  onClick={openInNewTab}
+                  className="inline-flex items-center gap-3 rounded-full bg-king-gold px-7 py-3 text-sm md:text-base font-bold uppercase tracking-wide text-king-dark shadow-lg shadow-black/30 transition-all duration-300 hover:-translate-y-0.5 hover:bg-yellow-400 hover:shadow-xl focus:outline-none focus-visible:ring-2 focus-visible:ring-white"
+                >
+                  <i className="fa-solid fa-diamond-turn-right" />
+                  Como chegar
+                </a>
+              </div>
+            </div>
+
+            {/* Mapa incorporado */}
+            <div className="bg-white rounded-2xl p-3 md:p-4 shadow-xl ring-1 ring-stone-200 min-h-[320px] lg:min-h-[420px]">
+              <iframe
+                title="Mapa da Paróquia Cristo Rei - Lorena, SP"
+                src={KITS_MAP_EMBED_URL}
+                className="w-full h-full min-h-[290px] lg:min-h-[390px] rounded-xl border-0"
+                loading="lazy"
+                allowFullScreen
+                referrerPolicy="strict-origin-when-cross-origin"
+              />
+            </div>
+          </div>
         </div>
       </section>
 
@@ -868,7 +943,7 @@ function Index() {
                   Regulamento
                 </a>
               </li>
-              <li><a href="#" className="hover:text-king-gold transition-colors">Retirada de Kits</a></li>
+              <li><a href="#kits" className="hover:text-king-gold transition-colors">Retirada de Kits</a></li>
             </ul>
           </div>
           <div>

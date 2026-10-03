@@ -1,4 +1,5 @@
 import { createFileRoute } from "@tanstack/react-router";
+import { Button } from "@/components/ui/button";
 import {
   useEffect,
   useRef,
@@ -90,6 +91,7 @@ type PlanId = "promo" | "kids";
 
 function Index() {
   const [menuOpen, setMenuOpen] = useState(false);
+  const [showShirtSizes, setShowShirtSizes] = useState(false);
   const [countdown, setCountdown] = useState({ d: "00", h: "00", m: "00" });
   const [selectedPlan, setSelectedPlan] = useState<PlanId | null>(null);
   const [showError, setShowError] = useState(false);
@@ -586,27 +588,111 @@ function Index() {
                 <i className="fa-solid fa-shirt text-king-gold mr-2" />
                 Kit do Atleta
               </h3>
-              <div className="flex-grow rounded-xl overflow-hidden ring-1 ring-stone-200 bg-stone-50 flex items-center justify-center">
-                <img
-                  src={kitAsset.url}
-                  alt="Kit do atleta: camiseta oficial da corrida, medalha e número de peito"
-                  className="w-full h-full min-h-[300px] lg:min-h-[380px] object-cover"
-                />
+              <div className="min-h-[520px] flex flex-col" aria-live="polite">
+                {showShirtSizes ? (
+                  <div className="flex min-h-[520px] flex-col rounded-xl bg-stone-50 p-4 ring-1 ring-stone-200 sm:p-5">
+                    <h4 className="text-center font-display text-xl font-bold uppercase text-king-red sm:text-2xl">
+                      Medidas das Camisetas
+                    </h4>
+
+                    <div className="mx-auto mt-4 grid w-full max-w-sm grid-cols-[1fr_auto] items-center gap-4 px-3">
+                      <div className="relative mx-auto h-40 w-48 sm:h-44 sm:w-56" aria-label="Camiseta dourada com indicação de largura">
+                        <div className="absolute left-1/2 top-2 h-3 w-28 -translate-x-1/2 border-x-2 border-t-2 border-king-dark" />
+                        <span className="absolute left-1/2 top-0 -translate-x-1/2 -translate-y-1/2 bg-stone-50 px-2 text-xs font-bold uppercase text-king-dark">
+                          Largura
+                        </span>
+                        <div className="absolute inset-x-0 bottom-0 top-7 bg-king-gold shadow-lg [clip-path:polygon(24%_0,38%_0,42%_7%,58%_7%,62%_0,76%_0,100%_20%,86%_42%,76%_34%,76%_100%,24%_100%,24%_34%,14%_42%,0_20%)]" />
+                        <div className="absolute left-1/2 top-7 h-5 w-10 -translate-x-1/2 rounded-b-full bg-stone-100" />
+                        <div className="absolute inset-x-12 top-[45%] text-center text-[10px] font-bold uppercase leading-tight text-king-red sm:text-xs">
+                          Corrida<br />de Cristo Rei
+                        </div>
+                      </div>
+
+                      <div className="relative h-36 w-12 sm:h-40" aria-label="Indicação de altura da camiseta">
+                        <div className="absolute left-2 top-0 h-full border-l-2 border-king-dark" />
+                        <div className="absolute left-0 top-0 w-5 border-t-2 border-king-dark" />
+                        <div className="absolute bottom-0 left-0 w-5 border-t-2 border-king-dark" />
+                        <span className="absolute left-5 top-1/2 -translate-y-1/2 text-xs font-bold uppercase text-king-dark [writing-mode:vertical-rl]">
+                          Altura
+                        </span>
+                      </div>
+                    </div>
+
+                    <div className="mt-4 overflow-hidden rounded-lg ring-1 ring-stone-300">
+                      <table className="w-full table-fixed border-collapse text-center text-xs text-king-dark sm:text-sm">
+                        <thead className="bg-king-red text-white">
+                          <tr>
+                            <th scope="col" className="px-2 py-2 font-bold uppercase">Tamanho</th>
+                            <th scope="col" className="border-l border-white/20 px-2 py-2 font-bold uppercase">Altura</th>
+                            <th scope="col" className="border-l border-white/20 px-2 py-2 font-bold uppercase">Largura</th>
+                          </tr>
+                        </thead>
+                        <tbody className="bg-white">
+                          {[
+                            ["PP", "61 cm", "44 cm"],
+                            ["P", "64 cm", "47 cm"],
+                            ["M", "67 cm", "50 cm"],
+                            ["G", "70 cm", "53 cm"],
+                            ["GG", "73 cm", "56 cm"],
+                            ["XG", "76 cm", "59 cm"],
+                          ].map(([size, height, width]) => (
+                            <tr key={size} className="border-t border-stone-200">
+                              <th scope="row" className="px-2 py-1.5 font-bold">{size}</th>
+                              <td className="border-l border-stone-200 px-2 py-1.5">{height}</td>
+                              <td className="border-l border-stone-200 px-2 py-1.5">{width}</td>
+                            </tr>
+                          ))}
+                        </tbody>
+                      </table>
+                    </div>
+
+                    <div className="mt-auto flex justify-center pt-5">
+                      <Button
+                        type="button"
+                        onClick={() => setShowShirtSizes(false)}
+                        className="h-10 rounded-full bg-king-red px-6 font-bold uppercase text-white shadow-lg transition-transform hover:-translate-y-0.5 hover:bg-king-dark focus-visible:ring-2 focus-visible:ring-king-gold"
+                        aria-label="Voltar para a imagem do kit do atleta"
+                      >
+                        <i className="fa-solid fa-arrow-left" />
+                        Voltar
+                      </Button>
+                    </div>
+                  </div>
+                ) : (
+                  <>
+                    <div className="relative flex flex-grow items-center justify-center overflow-hidden rounded-xl bg-stone-50 ring-1 ring-stone-200">
+                      <img
+                        src={kitAsset.url}
+                        alt="Kit do atleta: camiseta oficial da corrida, medalha e número de peito"
+                        className="h-full min-h-[380px] w-full object-cover"
+                      />
+                      <Button
+                        type="button"
+                        onClick={() => setShowShirtSizes(true)}
+                        className="absolute bottom-4 right-4 h-10 rounded-full bg-king-dark px-5 font-bold uppercase text-white shadow-xl ring-2 ring-king-gold transition-transform hover:-translate-y-0.5 hover:bg-king-red focus-visible:ring-2 focus-visible:ring-king-gold"
+                        aria-label="Ver tabela de tamanhos das camisetas"
+                      >
+                        <i className="fa-solid fa-shirt" />
+                        Tamanhos
+                      </Button>
+                    </div>
+                    <ul className="mt-6 grid grid-cols-1 gap-3 text-sm font-medium text-king-dark sm:grid-cols-3">
+                      <li className="flex items-center justify-center gap-2 rounded-lg bg-stone-50 px-3 py-2 ring-1 ring-stone-200">
+                        <i className="fa-solid fa-shirt text-king-red" />
+                        Camiseta Oficial
+                      </li>
+                      <li className="flex items-center justify-center gap-2 rounded-lg bg-stone-50 px-3 py-2 ring-1 ring-stone-200">
+                        <i className="fa-solid fa-medal text-king-red" />
+                        Medalha
+                      </li>
+                      <li className="flex items-center justify-center gap-2 rounded-lg bg-stone-50 px-3 py-2 ring-1 ring-stone-200">
+                        <i className="fa-solid fa-hashtag text-king-red" />
+                        Número de Peito
+                      </li>
+                    </ul>
+                  </>
+                )}
               </div>
-              <ul className="mt-6 grid grid-cols-1 sm:grid-cols-3 gap-3 text-sm font-medium text-king-dark">
-                <li className="flex items-center justify-center gap-2 rounded-lg bg-stone-50 ring-1 ring-stone-200 px-3 py-2">
-                  <i className="fa-solid fa-shirt text-king-red" />
-                  Camiseta Oficial
-                </li>
-                <li className="flex items-center justify-center gap-2 rounded-lg bg-stone-50 ring-1 ring-stone-200 px-3 py-2">
-                  <i className="fa-solid fa-medal text-king-red" />
-                  Medalha
-                </li>
-                <li className="flex items-center justify-center gap-2 rounded-lg bg-stone-50 ring-1 ring-stone-200 px-3 py-2">
-                  <i className="fa-solid fa-hashtag text-king-red" />
-                  Número de Peito
-                </li>
-              </ul>
             </div>
           </div>
         </div>

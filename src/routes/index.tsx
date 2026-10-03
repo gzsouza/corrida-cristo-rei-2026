@@ -224,23 +224,23 @@ function Index() {
   const closeMenu = () => setMenuOpen(false);
 
   return (
-    <div className="font-sans text-stone-800 bg-stone-50 antialiased">
+    <div className="min-w-0 overflow-x-clip font-sans text-stone-800 bg-stone-50 antialiased">
       {/* Navigation */}
       <nav
         className={`fixed w-full z-50 bg-king-dark/95 backdrop-blur-md text-white transition-all duration-300 border-b border-white/10 ${
           scrolled ? "py-2 shadow-lg" : "py-0 shadow-none"
         }`}
       >
-        <div className="container mx-auto px-4 sm:px-6 py-2 md:py-3 flex justify-between items-center">
-          <a href="#" className="flex items-center gap-3 group z-50">
+        <div className="container mx-auto grid grid-cols-[minmax(0,1fr)_auto] items-center gap-3 px-4 py-2 sm:px-6 md:py-3">
+          <a href="#" className="group z-50 flex min-w-0 items-center gap-3">
             <img
               src={logoAsset.url}
               alt="Logo 5ª Corrida Cristo Rei"
-              className="h-9 sm:h-10 md:h-12 lg:h-14 w-auto max-w-none object-contain group-hover:scale-105 transition-transform"
+              className="h-9 w-auto max-w-full shrink-0 object-contain transition-transform group-hover:scale-105 sm:h-10 md:h-12 lg:h-14"
             />
           </a>
 
-          <div className="hidden lg:flex items-center space-x-6 xl:space-x-8 font-medium text-sm xl:text-base">
+          <div className="hidden min-w-0 items-center gap-4 font-medium text-sm lg:flex xl:gap-7 xl:text-base">
             <a href="#causa" className="hover:text-king-gold transition-colors">Nossa Causa</a>
             <a href="#sobre" className="hover:text-king-gold transition-colors">A Prova</a>
             <a href="#modalidades" className="hover:text-king-gold transition-colors">Modalidades</a>
@@ -262,7 +262,7 @@ function Index() {
           </div>
 
           <button
-            className="lg:hidden text-2xl p-2 focus:outline-none focus:text-king-gold transition-colors z-50"
+            className="z-50 grid size-11 shrink-0 place-items-center text-2xl transition-colors focus:outline-none focus:text-king-gold lg:hidden"
             onClick={() => setMenuOpen((v) => !v)}
             aria-label="Abrir menu"
           >
@@ -271,11 +271,11 @@ function Index() {
         </div>
 
         <div
-          className={`fixed top-0 left-0 h-dvh w-full bg-king-dark/98 z-40 transform transition-transform duration-300 lg:hidden flex flex-col justify-center items-center ${
+          className={`fixed inset-0 z-40 flex h-dvh w-full transform flex-col items-center justify-center overflow-y-auto bg-king-dark/98 px-4 py-20 transition-transform duration-300 lg:hidden ${
             menuOpen ? "translate-x-0" : "translate-x-full"
           }`}
         >
-          <div className="flex flex-col space-y-6 text-center text-lg w-full px-8">
+          <div className="flex w-full max-w-sm flex-col space-y-3 px-4 text-center text-base sm:space-y-5 sm:text-lg">
             <a href="#causa" className="hover:text-king-gold py-2 border-b border-white/10" onClick={closeMenu}>Nossa Causa</a>
             <a href="#sobre" className="hover:text-king-gold py-2 border-b border-white/10" onClick={closeMenu}>A Prova</a>
             <a href="#modalidades" className="hover:text-king-gold py-2 border-b border-white/10" onClick={closeMenu}>Modalidades</a>
@@ -303,13 +303,13 @@ function Index() {
       </nav>
 
       {/* Hero */}
-      <header className="hero-bg min-h-[100dvh] flex items-center justify-center text-white relative clip-diagonal pb-16">
-        <div className="container mx-auto px-4 sm:px-6 text-center pt-20">
+      <header className="hero-bg relative flex min-h-[100svh] items-center justify-center pb-20 pt-16 text-white sm:pb-24 md:min-h-[100dvh] md:pt-20 clip-diagonal">
+        <div className="container mx-auto px-4 text-center sm:px-6">
           <span className="inline-block bg-king-gold/20 border border-king-gold text-king-gold px-3 py-1 md:px-4 rounded-full text-xs md:text-sm font-bold mb-4 md:mb-6 animate-fade-up backdrop-blur-sm">
             ENCERRAMENTO DA FESTA DE CRISTO REI
           </span>
           <h1
-            className="font-display text-4xl sm:text-5xl md:text-7xl font-bold mb-4 uppercase tracking-tight drop-shadow-lg animate-fade-up leading-tight"
+            className="mb-4 font-display text-4xl font-bold uppercase leading-[1.08] drop-shadow-lg animate-fade-up sm:text-5xl md:text-6xl lg:text-7xl"
             style={{ animationDelay: "0.2s" }}
           >
             5ª Corrida de <br />
@@ -322,13 +322,13 @@ function Index() {
             Correndo com Fé, Chegando com Graça.
           </p>
 
-          <div className="flex justify-center flex-wrap gap-3 sm:gap-4 mb-10 md:mb-12 animate-fade-up px-2" style={{ animationDelay: "0.6s" }}>
+          <div className="mx-auto mb-8 grid max-w-[280px] grid-cols-3 gap-2 px-1 animate-fade-up sm:mb-10 sm:max-w-sm sm:gap-4 md:mb-12" style={{ animationDelay: "0.6s" }}>
             {[
               { l: "Dias", v: countdown.d },
               { l: "Horas", v: countdown.h },
               { l: "Min", v: countdown.m },
             ].map((c) => (
-              <div key={c.l} className="bg-white/10 backdrop-blur-md p-3 md:p-4 rounded-lg min-w-[70px] sm:w-24 border border-white/20">
+              <div key={c.l} className="min-w-0 rounded-lg border border-white/20 bg-white/10 p-3 backdrop-blur-md md:p-4">
                 <span className="block text-2xl md:text-4xl font-display font-bold text-king-gold">{c.v}</span>
                 <span className="text-[10px] md:text-xs uppercase tracking-wider">{c.l}</span>
               </div>
@@ -340,7 +340,7 @@ function Index() {
             target="_blank"
             rel="noopener noreferrer"
             onClick={openInNewTab}
-            className="inline-block bg-king-gold text-king-dark text-base md:text-lg font-bold px-8 py-4 rounded-full hover:bg-white hover:text-king-red transition-all transform hover:scale-105 shadow-xl animate-fade-up w-full sm:w-auto max-w-xs"
+            className="inline-flex min-h-12 w-full max-w-xs items-center justify-center rounded-full bg-king-gold px-6 py-3.5 text-center text-sm font-bold text-king-dark shadow-xl transition-all animate-fade-up hover:scale-105 hover:bg-white hover:text-king-red sm:w-auto sm:px-8 sm:text-base md:text-lg"
             style={{ animationDelay: "0.8s" }}
           >
             GARANTIR MINHA VAGA
@@ -356,14 +356,14 @@ function Index() {
 
       {/* Info Bar */}
       <section className="container mx-auto px-4 relative z-20">
-        <div className="bg-king-gold py-8 -mt-12 md:-mt-20 mx-auto max-w-6xl rounded-xl shadow-2xl relative">
-          <div className="grid grid-cols-1 md:grid-cols-3 gap-6 text-center divide-y md:divide-y-0 md:divide-x divide-king-dark/10">
+        <div className="relative mx-auto -mt-10 max-w-6xl rounded-xl bg-king-gold py-5 shadow-2xl sm:-mt-12 sm:py-7 md:-mt-20 md:py-8">
+          <div className="grid grid-cols-1 divide-y divide-king-dark/10 text-center md:grid-cols-3 md:divide-x md:divide-y-0">
             {[
               { i: "fa-running", t: "Esporte & Fé", d: "Incentivando a saúde física e espiritual." },
               { i: "fa-hand-holding-heart", t: "100% Beneficente", d: "Todo lucro revertido para as obras da Paróquia." },
               { i: "fa-medal", t: "Premiação", d: "Troféus por categoria e medalha para todos." },
             ].map((c) => (
-              <div key={c.t} className="p-4 flex flex-col items-center">
+              <div key={c.t} className="flex flex-col items-center px-4 py-5 md:py-4">
                 <i className={`fa-solid ${c.i} text-3xl text-king-dark mb-3`} />
                 <h3 className="font-bold text-king-dark text-lg">{c.t}</h3>
                 <p className="text-king-dark/80 text-sm max-w-xs">{c.d}</p>
@@ -374,18 +374,18 @@ function Index() {
       </section>
 
       {/* Causa */}
-      <section id="causa" className="bg-stone-100 py-16 md:py-24 mt-8 md:mt-0">
-        <div className="container mx-auto px-4 sm:px-6 flex flex-col md:flex-row items-center gap-12 lg:gap-16">
-          <div className="md:w-1/2 relative w-full">
+      <section id="causa" className="mt-8 scroll-mt-20 bg-stone-100 py-14 sm:py-16 md:mt-0 md:py-20 lg:py-24">
+        <div className="container mx-auto flex flex-col items-center gap-10 px-4 sm:px-6 md:gap-12 lg:flex-row lg:gap-16">
+          <div className="relative w-full lg:w-1/2">
             <div className="absolute -top-4 -left-4 w-20 h-20 md:w-24 md:h-24 bg-king-gold rounded-full opacity-20" />
             <img
               src={igrejaAsset.url}
               alt="Igreja e Comunidade"
-              className="rounded-2xl shadow-2xl relative z-10 w-full object-cover h-64 sm:h-80 md:h-96"
+              className="relative z-10 h-64 w-full rounded-2xl object-cover shadow-2xl sm:h-80 lg:h-96"
             />
             <div className="absolute -bottom-4 -right-4 w-24 h-24 md:w-32 md:h-32 bg-king-red rounded-full opacity-20" />
           </div>
-          <div className="md:w-1/2 text-center md:text-left" data-fab-avoid>
+          <div className="w-full text-center lg:w-1/2 lg:text-left" data-fab-avoid>
             <h4 className="text-king-gold font-bold uppercase tracking-wider mb-2 text-sm md:text-base">Solidariedade e Fé</h4>
             <h2 className="text-3xl md:text-4xl font-display font-bold text-king-dark mb-6 leading-tight">
               Correndo por um Propósito Maior
@@ -396,7 +396,7 @@ function Index() {
             <p className="text-stone-600 mb-8 leading-relaxed text-sm md:text-base">
               Ao participar, você cuida da sua saúde, celebra o encerramento das nossas festividades e ajuda diretamente nossa comunidade a continuar seus trabalhos de evangelização.
             </p>
-            <div className="flex items-center justify-center md:justify-start gap-4">
+            <div className="flex items-center justify-center gap-4 lg:justify-start">
               <div className="bg-white p-4 rounded-lg shadow-sm border-l-4 border-king-gold text-left max-w-md">
                 <p className="text-sm font-bold text-king-dark italic">"Combati o bom combate, acabei a carreira, guardei a fé."</p>
                 <p className="text-xs text-stone-500 mt-1">- 2 Timóteo 4:7</p>
@@ -407,7 +407,7 @@ function Index() {
       </section>
 
       {/* Modalidades */}
-      <section id="modalidades" className="py-16 md:py-24 container mx-auto px-4 sm:px-6">
+      <section id="modalidades" className="container mx-auto scroll-mt-20 px-4 py-14 sm:px-6 sm:py-16 md:py-20 lg:py-24">
         <div className="text-center mb-12 md:mb-16">
           <h2 className="text-king-red font-display text-3xl md:text-4xl font-bold uppercase mb-4">Escolha seu Desafio</h2>
           <div className="w-20 md:w-24 h-1 bg-king-gold mx-auto rounded" />
@@ -416,7 +416,7 @@ function Index() {
           </p>
         </div>
 
-        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6 md:gap-8">
+        <div className="grid grid-cols-1 gap-6 sm:grid-cols-2 md:gap-8 xl:grid-cols-4">
           {[
             {
               title: "KIDS", icon: "fa-child",
@@ -470,7 +470,7 @@ function Index() {
       </section>
 
       {/* Entrega de Kits */}
-      <section id="kits" className="py-16 md:py-24 bg-stone-100">
+      <section id="kits" className="scroll-mt-20 bg-stone-100 py-14 sm:py-16 md:py-20 lg:py-24">
         <div className="container mx-auto px-4 sm:px-6">
           <div className="text-center mb-10 md:mb-14">
             <span className="block text-king-gold font-display font-bold uppercase tracking-[0.25em] text-xs md:text-sm mb-3">
@@ -484,7 +484,7 @@ function Index() {
             {/* Informações da retirada */}
             <div
               data-fab-avoid
-              className="bg-king-dark text-stone-300 rounded-2xl p-6 md:p-10 shadow-xl ring-1 ring-white/5 flex flex-col"
+              className="flex min-w-0 flex-col rounded-2xl bg-king-dark p-5 text-stone-300 shadow-xl ring-1 ring-white/5 sm:p-6 md:p-8 lg:p-10"
             >
               <h3 className="text-white font-display text-xl md:text-2xl font-bold uppercase mb-5">
                 <i className="fa-solid fa-box-open text-king-gold mr-2" />
@@ -516,7 +516,7 @@ function Index() {
                   target="_blank"
                   rel="noopener noreferrer"
                   onClick={openInNewTab}
-                  className="inline-flex items-center gap-3 rounded-full bg-king-gold px-7 py-3 text-sm md:text-base font-bold uppercase tracking-wide text-king-dark shadow-lg shadow-black/30 transition-all duration-300 hover:-translate-y-0.5 hover:bg-yellow-400 hover:shadow-xl focus:outline-none focus-visible:ring-2 focus-visible:ring-white"
+                  className="inline-flex min-h-12 w-full items-center justify-center gap-3 rounded-full bg-king-gold px-6 py-3 text-center text-sm font-bold uppercase tracking-wide text-king-dark shadow-lg shadow-black/30 transition-all duration-300 hover:-translate-y-0.5 hover:bg-yellow-400 hover:shadow-xl focus:outline-none focus-visible:ring-2 focus-visible:ring-white sm:w-auto md:text-base"
                 >
                   <i className="fa-solid fa-diamond-turn-right" />
                   Como chegar
@@ -525,11 +525,11 @@ function Index() {
             </div>
 
             {/* Mapa incorporado */}
-            <div className="bg-white rounded-2xl p-3 md:p-4 shadow-xl ring-1 ring-stone-200 min-h-[320px] lg:min-h-[420px]">
+            <div className="min-h-[300px] min-w-0 rounded-2xl bg-white p-2 shadow-xl ring-1 ring-stone-200 sm:min-h-[340px] sm:p-3 md:p-4 lg:min-h-[420px]">
               <iframe
                 title="Mapa da Paróquia Cristo Rei - Lorena, SP"
                 src={KITS_MAP_EMBED_URL}
-                className="w-full h-full min-h-[290px] lg:min-h-[390px] rounded-xl border-0"
+                className="h-full min-h-[284px] w-full rounded-xl border-0 sm:min-h-[316px] lg:min-h-[390px]"
                 loading="lazy"
                 allowFullScreen
                 referrerPolicy="strict-origin-when-cross-origin"
@@ -540,13 +540,13 @@ function Index() {
       </section>
 
       {/* Kit do Atleta + Redes Sociais */}
-      <section id="kit-atleta" className="py-16 md:py-24">
+      <section id="kit-atleta" className="scroll-mt-20 py-14 sm:py-16 md:py-20 lg:py-24">
         <div className="container mx-auto px-4 sm:px-6">
           <div className="text-center mb-10 md:mb-14">
             <span className="block text-king-gold font-display font-bold uppercase tracking-[0.25em] text-xs md:text-sm mb-3">
               Kit do Atleta
             </span>
-            <h2 className="text-king-red font-display text-3xl md:text-4xl font-bold uppercase">
+            <h2 className="text-king-red font-display text-3xl md:text-4xl font-bold uppercase leading-tight">
               Seu Kit e Nossa Comunidade
             </h2>
             <div className="w-20 md:w-24 h-1 bg-king-gold mx-auto rounded mt-4" />
@@ -554,7 +554,7 @@ function Index() {
 
           <div className="grid grid-cols-1 lg:grid-cols-2 gap-6 lg:gap-8 items-stretch max-w-6xl mx-auto">
             {/* Frame esquerdo: Instagram */}
-            <div className="bg-white rounded-2xl p-6 md:p-8 shadow-xl ring-1 ring-stone-200 flex flex-col">
+            <div className="flex min-w-0 flex-col rounded-2xl bg-white p-4 shadow-xl ring-1 ring-stone-200 sm:p-6 md:p-8">
               <h3 className="text-king-dark font-display text-xl md:text-2xl font-bold uppercase mb-5">
                 <i className="fa-brands fa-instagram text-king-red mr-2" />
                 Acompanhe nossas redes sociais
@@ -563,7 +563,7 @@ function Index() {
                 <iframe
                   title="Instagram da 5ª Corrida de Cristo Rei"
                   src={INSTAGRAM_EMBED_URL}
-                  className="w-full h-full min-h-[380px] lg:min-h-[420px] border-0"
+                  className="h-full min-h-[360px] w-full border-0 sm:min-h-[400px] lg:min-h-[420px]"
                   loading="lazy"
                   referrerPolicy="strict-origin-when-cross-origin"
                 />
@@ -574,7 +574,7 @@ function Index() {
                   target="_blank"
                   rel="noopener noreferrer"
                   onClick={openInNewTab}
-                  className="inline-flex items-center gap-2 rounded-full bg-king-gold px-6 py-2.5 text-sm font-bold uppercase tracking-wide text-king-dark shadow-lg shadow-yellow-600/30 transition-all duration-300 hover:-translate-y-0.5 hover:bg-yellow-400"
+                  className="inline-flex min-h-11 max-w-full items-center justify-center gap-2 rounded-full bg-king-gold px-4 py-2.5 text-center text-xs font-bold uppercase text-king-dark shadow-lg shadow-yellow-600/30 transition-all duration-300 hover:-translate-y-0.5 hover:bg-yellow-400 sm:px-6 sm:text-sm sm:tracking-wide"
                 >
                   <i className="fa-brands fa-instagram" />
                   Seguir @corridacristorei
@@ -583,20 +583,20 @@ function Index() {
             </div>
 
             {/* Frame direito: Kit do atleta */}
-            <div className="bg-white rounded-2xl p-6 md:p-8 shadow-xl ring-1 ring-stone-200 flex flex-col">
+            <div className="flex min-w-0 flex-col rounded-2xl bg-white p-4 shadow-xl ring-1 ring-stone-200 sm:p-6 md:p-8">
               <h3 className="text-king-dark font-display text-xl md:text-2xl font-bold uppercase mb-5">
                 <i className="fa-solid fa-shirt text-king-gold mr-2" />
                 Kit do Atleta
               </h3>
-              <div className="min-h-[520px] flex flex-col" aria-live="polite">
+              <div className="flex min-h-[460px] min-w-0 flex-col sm:min-h-[520px]" aria-live="polite">
                 {showShirtSizes ? (
-                  <div className="flex min-h-[520px] flex-col rounded-xl bg-stone-50 p-4 ring-1 ring-stone-200 sm:p-5">
+                   <div className="flex min-h-[460px] min-w-0 flex-col rounded-xl bg-stone-50 p-3 ring-1 ring-stone-200 sm:min-h-[520px] sm:p-5">
                     <h4 className="text-center font-display text-xl font-bold uppercase text-king-red sm:text-2xl">
                       Medidas das Camisetas
                     </h4>
 
-                    <div className="mx-auto mt-4 grid w-full max-w-sm grid-cols-[1fr_auto] items-center gap-4 px-3">
-                      <div className="relative mx-auto h-40 w-48 sm:h-44 sm:w-56" aria-label="Camiseta dourada com indicação de largura">
+                    <div className="mx-auto mt-4 grid w-full max-w-sm grid-cols-[minmax(0,1fr)_2.5rem] items-center gap-2 px-1 sm:grid-cols-[1fr_auto] sm:gap-4 sm:px-3">
+                       <div className="relative mx-auto h-36 w-full max-w-48 sm:h-44 sm:max-w-56" aria-label="Camiseta dourada com indicação de largura">
                         <div className="absolute left-1/2 top-2 h-3 w-28 -translate-x-1/2 border-x-2 border-t-2 border-king-dark" />
                         <span className="absolute left-1/2 top-0 -translate-x-1/2 -translate-y-1/2 bg-stone-50 px-2 text-xs font-bold uppercase text-king-dark">
                           Largura
@@ -608,7 +608,7 @@ function Index() {
                         </div>
                       </div>
 
-                      <div className="relative h-36 w-12 sm:h-40" aria-label="Indicação de altura da camiseta">
+                       <div className="relative h-32 w-10 sm:h-40 sm:w-12" aria-label="Indicação de altura da camiseta">
                         <div className="absolute left-2 top-0 h-full border-l-2 border-king-dark" />
                         <div className="absolute left-0 top-0 w-5 border-t-2 border-king-dark" />
                         <div className="absolute bottom-0 left-0 w-5 border-t-2 border-king-dark" />
@@ -664,12 +664,12 @@ function Index() {
                       <img
                         src={kitAsset.url}
                         alt="Kit do atleta: camiseta oficial da corrida, medalha e número de peito"
-                        className="h-full min-h-[380px] w-full object-cover"
+                         className="h-full min-h-[340px] w-full object-contain sm:min-h-[380px]"
                       />
                       <Button
                         type="button"
                         onClick={() => setShowShirtSizes(true)}
-                        className="absolute bottom-4 right-4 h-10 rounded-full bg-king-dark px-5 font-bold uppercase text-white shadow-xl ring-2 ring-king-gold transition-transform hover:-translate-y-0.5 hover:bg-king-red focus-visible:ring-2 focus-visible:ring-king-gold"
+                         className="absolute bottom-3 right-3 h-10 rounded-full bg-king-dark px-4 text-xs font-bold uppercase text-white shadow-xl ring-2 ring-king-gold transition-transform hover:-translate-y-0.5 hover:bg-king-red focus-visible:ring-2 focus-visible:ring-king-gold sm:bottom-4 sm:right-4 sm:px-5 sm:text-sm"
                         aria-label="Ver tabela de tamanhos das camisetas"
                       >
                         <i className="fa-solid fa-shirt" />
@@ -852,11 +852,11 @@ function Index() {
       )}
 
       {/* Patrocinador */}
-      <section id="patrocinador" className="py-16 md:py-20 bg-stone-50 relative overflow-hidden">
+      <section id="patrocinador" className="relative scroll-mt-20 overflow-hidden bg-stone-50 py-14 sm:py-16 md:py-20">
         <div className="absolute top-0 right-0 w-32 md:w-64 h-32 md:h-64 bg-king-gold/10 rounded-full blur-3xl -mr-16 -mt-16" />
         <div className="absolute bottom-0 left-0 w-32 md:w-64 h-32 md:h-64 bg-king-red/5 rounded-full blur-3xl -ml-16 -mb-16" />
         <div className="container mx-auto px-4 sm:px-6 relative z-10">
-          <div className="flex flex-col lg:flex-row items-center gap-10 lg:gap-16 max-w-6xl mx-auto">
+          <div className="mx-auto flex max-w-6xl flex-col items-center gap-10 lg:flex-row lg:gap-16">
             <div className="lg:w-1/2 text-center lg:text-left">
               <span className="text-king-red font-bold tracking-wider text-xs md:text-sm uppercase mb-2 block">Oportunidade de Parceria</span>
               <h2 className="font-display text-3xl md:text-5xl font-bold text-king-dark mb-6 leading-tight">
@@ -871,7 +871,7 @@ function Index() {
             </div>
 
             <div className="lg:w-1/2 w-full">
-              <div className="bg-white p-6 md:p-8 rounded-2xl shadow-xl border border-stone-100">
+              <div className="min-w-0 rounded-2xl border border-stone-100 bg-white p-5 shadow-xl sm:p-6 md:p-8">
                 <div className="text-center mb-6">
                   <h3 className="text-xl md:text-2xl font-display font-bold text-king-dark">Quero ser Parceiro</h3>
                   <p className="text-xs md:text-sm text-stone-500">Preencha e entraremos em contato com as cotas disponíveis.</p>
@@ -943,7 +943,7 @@ function Index() {
       </section>
 
       {/* Local */}
-      <section className="py-16 bg-white">
+      <section className="bg-white py-14 sm:py-16">
         <div className="container mx-auto px-4 text-center">
           <h2 className="text-2xl font-bold text-king-dark mb-8">Local do Evento</h2>
           <div className="bg-stone-100 p-6 md:p-8 rounded-xl max-w-3xl mx-auto border border-stone-200 shadow-sm">
@@ -963,7 +963,7 @@ function Index() {
               <i className="fa-solid fa-arrow-up-right-from-square text-xs ml-1 opacity-70 group-hover:opacity-100" />
             </a>
             <div className="block">
-              <div className="inline-block bg-white px-6 py-3 rounded-full border border-stone-200 text-xs md:text-sm text-stone-500">
+              <div className="inline-flex max-w-full items-center rounded-full border border-stone-200 bg-white px-4 py-3 text-xs text-stone-500 sm:px-6 md:text-sm">
                 <i className="fa-solid fa-route mr-2 text-king-gold" /> O percurso passará pelas principais avenidas do bairro.
               </div>
             </div>
@@ -972,18 +972,18 @@ function Index() {
       </section>
 
       {/* Realização e Apoio */}
-      <section className="py-16 bg-stone-50 border-t border-stone-200">
+      <section className="border-t border-stone-200 bg-stone-50 py-14 sm:py-16">
         <div className="container mx-auto px-4 text-center">
           <h2 className="text-3xl font-display font-bold text-king-dark mb-2 uppercase">Realização e Apoio</h2>
           <div className="w-16 h-1 bg-king-gold mx-auto rounded mb-12" />
 
           {/* Premium */}
           <div className="mb-16">
-            <h3 className="text-king-gold font-display font-bold text-xl md:text-2xl mb-8 uppercase tracking-widest flex items-center justify-center gap-4">
-              <span className="h-px w-8 bg-king-gold/30" /> Patrocínio Premium <span className="h-px w-8 bg-king-gold/30" />
+            <h3 className="flex items-center justify-center gap-2 font-display text-lg font-bold uppercase tracking-widest text-king-gold sm:gap-4 sm:text-xl md:text-2xl mb-8">
+              <span className="h-px w-5 shrink-0 bg-king-gold/30 sm:w-8" /> Patrocínio Premium <span className="h-px w-5 shrink-0 bg-king-gold/30 sm:w-8" />
             </h3>
             <div className="flex justify-center">
-              <div className="w-[333px] h-[208px] max-w-[calc(100vw-2rem)] md:w-[416px] md:h-[250px] bg-white rounded-xl shadow-md shadow-stone-200/70 ring-1 ring-stone-100 flex items-center justify-center p-8 md:p-[42px] transition-all duration-300 transform hover:scale-105">
+              <div className="flex aspect-[5/3] w-full max-w-[333px] items-center justify-center rounded-xl bg-white p-7 shadow-md shadow-stone-200/70 ring-1 ring-stone-100 transition-all duration-300 hover:scale-105 md:max-w-[416px] md:p-[42px]">
                 <img src={kidocuraAsset.url} alt="Patrocinador Premium - Kidoçura" className="max-w-full max-h-full w-auto h-auto object-contain" />
               </div>
             </div>
@@ -1000,7 +1000,7 @@ function Index() {
                 { src: siSerralheriaAsset.url, alt: "Patrocinador Diamante - S.I. Serralheria" },
                 { src: ninniAsset.url, alt: "Patrocinador Diamante - Ninni Sushi Bar", imgClass: "max-w-[84%] max-h-[84%]" },
               ].map(({ imgClass = "max-w-full max-h-full", ...logo }) => (
-                <div key={logo.alt} className="h-28 md:h-36 bg-white shadow-md shadow-stone-200/70 ring-1 ring-stone-100 rounded-xl flex items-center justify-center p-4 md:p-6 transition-all duration-300 transform hover:scale-105">
+                <div key={logo.alt} className="flex h-24 min-w-0 items-center justify-center rounded-xl bg-white p-3 shadow-md shadow-stone-200/70 ring-1 ring-stone-100 transition-all duration-300 hover:scale-105 xs:h-28 xs:p-4 md:h-36 md:p-6">
                   <img src={logo.src} alt={logo.alt} className={`${imgClass} w-auto h-auto object-contain`} />
                 </div>
               ))}
@@ -1017,7 +1017,7 @@ function Index() {
                 { src: padariaPrincesaAsset.url, alt: "Patrocinador Ouro - Padaria Princesa", imgClass: "max-w-[78%] max-h-[96%]" },
                 { src: vilaPastelAsset.url, alt: "Patrocinador Ouro - Vila Pastel", imgClass: "max-w-[88%] max-h-[70%]" },
               ].map((logo) => (
-                <div key={logo.alt} className="h-24 sm:h-26 md:h-28 bg-white shadow-sm shadow-stone-200/70 ring-1 ring-stone-100 rounded-lg flex items-center justify-center p-3 sm:p-4 transition-transform duration-300 hover:scale-[1.03]">
+                 <div key={logo.alt} className="flex h-20 min-w-0 items-center justify-center rounded-lg bg-white p-2.5 shadow-sm shadow-stone-200/70 ring-1 ring-stone-100 transition-transform duration-300 hover:scale-[1.03] xs:h-24 xs:p-3 sm:p-4 md:h-28">
                   <img src={logo.src} alt={logo.alt} className={`${logo.imgClass} w-auto h-auto object-contain`} />
                 </div>
               ))}
@@ -1041,7 +1041,7 @@ function Index() {
                 { src: ibisAsset.url, alt: "Patrocinador Prata - Ibis Budget", imgClass: "max-w-[78%] max-h-[84%] scale-[1.15]" },
                 { src: alineCristinaAsset.url, alt: "Patrocinador Prata - Aline Cristina Pilates", imgClass: "max-w-[88%] max-h-[88%] scale-[1.15]" },
               ].map((logo) => (
-                <div key={logo.alt} className="h-24 sm:h-26 md:h-28 bg-white shadow-sm shadow-stone-200/70 ring-1 ring-stone-100 rounded-lg flex items-center justify-center p-3 sm:p-4 transition-transform duration-300 hover:scale-[1.03]">
+                 <div key={logo.alt} className="flex h-20 min-w-0 items-center justify-center rounded-lg bg-white p-2.5 shadow-sm shadow-stone-200/70 ring-1 ring-stone-100 transition-transform duration-300 hover:scale-[1.03] xs:h-24 xs:p-3 sm:p-4 md:h-28">
                   <img src={logo.src} alt={logo.alt} className={`${logo.imgClass} w-auto h-auto object-contain`} />
                 </div>
               ))}
@@ -1051,11 +1051,11 @@ function Index() {
           {/* Bronze */}
           <div className="mb-12">
             <h3 className="text-orange-800/60 font-display font-bold text-sm md:text-base mb-6 uppercase tracking-wider">Patrocínio Bronze</h3>
-            <div className="grid grid-cols-2 sm:grid-cols-4 gap-3 md:gap-4 max-w-2xl mx-auto">
+             <div className="mx-auto grid max-w-2xl grid-cols-2 gap-2.5 xs:gap-3 sm:grid-cols-4 md:gap-4">
               {Array.from({ length: 16 }, (_, i) => (
                 <div
                   key={i}
-                  className="h-14 sm:h-16 md:h-18 bg-white/70 border border-dashed border-stone-300 rounded-lg flex items-center justify-center px-2 text-center"
+                   className="flex h-14 min-w-0 items-center justify-center rounded-lg border border-dashed border-stone-300 bg-white/70 px-1.5 text-center sm:h-16 sm:px-2 md:h-18"
                 >
                   <span className="font-display font-semibold uppercase tracking-wide text-[10px] sm:text-xs md:text-sm text-stone-400">
                     Espaço Disponível
@@ -1070,13 +1070,13 @@ function Index() {
             <div className="grid grid-cols-1 md:grid-cols-2 gap-12 max-w-5xl mx-auto">
               <div className="flex flex-col items-center">
                 <h3 className="text-king-dark font-display font-bold text-sm md:text-base mb-6 uppercase tracking-wider">Realização</h3>
-                <div className="w-full max-w-[400px] h-28 md:h-36 bg-white shadow-md shadow-stone-200/70 ring-1 ring-stone-100 rounded-xl flex items-center justify-center p-4 md:p-6 transform hover:scale-105 transition-all duration-300">
+                 <div className="flex h-28 w-full max-w-[400px] items-center justify-center rounded-xl bg-white p-4 shadow-md shadow-stone-200/70 ring-1 ring-stone-100 transition-all duration-300 hover:scale-105 md:h-36 md:p-6">
                   <img src={cristoReiAsset.url} alt="Realização Paróquia Cristo Rei" className="max-w-full max-h-full w-auto h-auto object-contain scale-[1.3]" />
                 </div>
               </div>
               <div className="flex flex-col items-center">
                 <h3 className="text-stone-500 font-display font-bold text-sm md:text-base mb-6 uppercase tracking-wider">Apoio Institucional</h3>
-                <div className="w-full max-w-[400px] h-28 md:h-36 bg-white shadow-md shadow-stone-200/70 ring-1 ring-stone-100 rounded-xl flex items-center justify-center p-4 md:p-6 transform hover:scale-105 transition-all duration-300">
+                 <div className="flex h-28 w-full max-w-[400px] items-center justify-center rounded-xl bg-white p-4 shadow-md shadow-stone-200/70 ring-1 ring-stone-100 transition-all duration-300 hover:scale-105 md:h-36 md:p-6">
                   <img
                     src={coimbraAsset.url}
                     alt="Coimbra - Apoio Institucional"
@@ -1091,7 +1091,7 @@ function Index() {
 
       {/* Footer */}
       <footer id="contato" className="bg-king-dark text-stone-400 py-12 border-t border-white/5">
-        <div className="container mx-auto px-6 grid grid-cols-1 md:grid-cols-3 gap-8 text-center md:text-left">
+        <div className="container mx-auto grid grid-cols-1 gap-8 px-6 text-center sm:grid-cols-2 sm:text-left lg:grid-cols-3">
           <div>
             <p className="text-sm">Evento oficial da Paróquia Cristo Rei de Lorena-SP. Unindo fé e esporte em prol da comunidade.</p>
           </div>
@@ -1121,7 +1121,7 @@ function Index() {
                   target="_blank"
                   rel="noopener noreferrer"
                   onClick={openInNewTab}
-                  className="flex items-center justify-center md:justify-start hover:text-king-gold transition-colors"
+                   className="flex min-h-11 items-center justify-center transition-colors hover:text-king-gold sm:justify-start"
                 >
                   <i className="fa-brands fa-whatsapp mr-2" /> (12) 99772-3895
                 </a>

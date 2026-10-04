@@ -10,3 +10,4 @@
 <!-- LOVABLE:END -->
 
 - Sponsor grids use a responsive 4/6-column span pattern so incomplete final rows stay centered; this preserves symmetry as sponsors are added.
+- Content pairs remain stacked through tablet widths and become two columns only at `xl`; this prevents cramped cards and preserves the intended reading order.

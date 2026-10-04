@@ -242,8 +242,8 @@ function Index() {
 
           <div className="hidden min-w-0 items-center gap-4 font-medium text-sm lg:flex xl:gap-7 xl:text-base">
             <a href="#causa" className="hover:text-king-gold transition-colors">Nossa Causa</a>
-            <a href="#sobre" className="hover:text-king-gold transition-colors">A Prova</a>
             <a href="#modalidades" className="hover:text-king-gold transition-colors">Modalidades</a>
+            <a href="#kit-atleta" className="hover:text-king-gold transition-colors">Kits</a>
             <a
               href={INSCRICAO_URL}
               target="_blank"
@@ -281,8 +281,8 @@ function Index() {
         >
           <div className="flex w-full max-w-sm flex-col space-y-3 px-4 text-center text-base sm:space-y-5 sm:text-lg">
             <a href="#causa" className="hover:text-king-gold py-2 border-b border-white/10" onClick={closeMenu}>Nossa Causa</a>
-            <a href="#sobre" className="hover:text-king-gold py-2 border-b border-white/10" onClick={closeMenu}>A Prova</a>
             <a href="#modalidades" className="hover:text-king-gold py-2 border-b border-white/10" onClick={closeMenu}>Modalidades</a>
+            <a href="#kit-atleta" className="hover:text-king-gold py-2 border-b border-white/10" onClick={closeMenu}>Kits</a>
             <a
               href={INSCRICAO_URL}
               target="_blank"

@@ -264,13 +264,17 @@ function Index() {
           <button
             className="z-50 grid size-11 shrink-0 place-items-center text-2xl transition-colors focus:outline-none focus:text-king-gold lg:hidden"
             onClick={() => setMenuOpen((v) => !v)}
-            aria-label="Abrir menu"
+            aria-label={menuOpen ? "Fechar menu" : "Abrir menu"}
+            aria-expanded={menuOpen}
+            aria-controls="menu-principal-mobile"
           >
             <i className={`fa-solid ${menuOpen ? "fa-xmark" : "fa-bars"}`} />
           </button>
         </div>
 
         <div
+          id="menu-principal-mobile"
+          aria-hidden={!menuOpen}
           className={`fixed inset-0 z-40 flex h-dvh w-full transform flex-col items-center justify-center overflow-y-auto bg-king-dark/98 px-4 py-20 transition-transform duration-300 lg:hidden ${
             menuOpen ? "translate-x-0" : "translate-x-full"
           }`}
@@ -480,7 +484,7 @@ function Index() {
             <div className="w-20 md:w-24 h-1 bg-king-gold mx-auto rounded mt-4" />
           </div>
 
-          <div className="grid grid-cols-1 lg:grid-cols-2 gap-6 lg:gap-8 items-stretch max-w-6xl mx-auto">
+          <div className="mx-auto grid max-w-6xl grid-cols-1 items-stretch gap-6 xl:grid-cols-2 xl:gap-8">
             {/* Informações da retirada */}
             <div
               data-fab-avoid
@@ -525,11 +529,11 @@ function Index() {
             </div>
 
             {/* Mapa incorporado */}
-            <div className="min-h-[300px] min-w-0 rounded-2xl bg-white p-2 shadow-xl ring-1 ring-stone-200 sm:min-h-[340px] sm:p-3 md:p-4 lg:min-h-[420px]">
+            <div className="min-h-[300px] min-w-0 rounded-2xl bg-white p-2 shadow-xl ring-1 ring-stone-200 sm:min-h-[340px] sm:p-3 md:p-4 xl:min-h-[420px]">
               <iframe
                 title="Mapa da Paróquia Cristo Rei - Lorena, SP"
                 src={KITS_MAP_EMBED_URL}
-                className="h-full min-h-[284px] w-full rounded-xl border-0 sm:min-h-[316px] lg:min-h-[390px]"
+                className="h-full min-h-[284px] w-full rounded-xl border-0 sm:min-h-[316px] xl:min-h-[390px]"
                 loading="lazy"
                 allowFullScreen
                 referrerPolicy="strict-origin-when-cross-origin"
@@ -552,7 +556,7 @@ function Index() {
             <div className="w-20 md:w-24 h-1 bg-king-gold mx-auto rounded mt-4" />
           </div>
 
-          <div className="grid grid-cols-1 lg:grid-cols-2 gap-6 lg:gap-8 items-stretch max-w-6xl mx-auto">
+          <div className="mx-auto grid max-w-6xl grid-cols-1 items-stretch gap-6 xl:grid-cols-2 xl:gap-8">
             {/* Frame esquerdo: Instagram */}
             <div className="flex min-w-0 flex-col rounded-2xl bg-white p-4 shadow-xl ring-1 ring-stone-200 sm:p-6 md:p-8">
               <h3 className="text-king-dark font-display text-xl md:text-2xl font-bold uppercase mb-5">
@@ -563,7 +567,7 @@ function Index() {
                 <iframe
                   title="Instagram da 5ª Corrida de Cristo Rei"
                   src={INSTAGRAM_EMBED_URL}
-                  className="h-full min-h-[360px] w-full border-0 sm:min-h-[400px] lg:min-h-[420px]"
+                  className="h-full min-h-[360px] w-full border-0 sm:min-h-[400px] xl:min-h-[420px]"
                   loading="lazy"
                   referrerPolicy="strict-origin-when-cross-origin"
                 />
@@ -1141,7 +1145,7 @@ function Index() {
         target="_blank"
         rel="noopener noreferrer"
         onClick={openInNewTab}
-        className={`hidden lg:inline-flex fixed bottom-6 right-6 z-50 items-center gap-3 rounded-full bg-king-gold px-7 py-4 text-sm xl:text-base font-bold uppercase tracking-wide text-king-dark shadow-xl shadow-yellow-600/30 ring-1 ring-king-gold/50 transition-all duration-300 hover:-translate-y-1 hover:bg-yellow-400 hover:shadow-2xl hover:shadow-yellow-500/50 focus:outline-none focus-visible:ring-2 focus-visible:ring-king-dark ${
+        className={`fixed bottom-6 right-6 z-50 hidden items-center gap-3 rounded-full bg-king-gold px-7 py-4 text-sm font-bold uppercase tracking-wide text-king-dark shadow-xl shadow-yellow-600/30 ring-1 ring-king-gold/50 transition-all duration-300 hover:-translate-y-1 hover:bg-yellow-400 hover:shadow-2xl hover:shadow-yellow-500/50 focus:outline-none focus-visible:ring-2 focus-visible:ring-king-dark xl:inline-flex xl:text-base ${
           showFab ? "translate-y-0 opacity-100" : "pointer-events-none translate-y-6 opacity-0"
         }`}
       >
